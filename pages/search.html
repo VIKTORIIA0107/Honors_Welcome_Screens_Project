@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Find a Room</title>
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="../data/rooms.js"></script>
+        <script defer src="../js/script.js"></script>
+    </head>
+    <body>
+        <header>
+            <h1>Find a Room</h1>
+            <p>Search by room number, lecturer name, or module</p>
+        </header>
+        <div class="container">
+            <div class="search-row">
+                <input id="roomQuery" class="search-input" type="text" placeholder="Search room, lecturer, or module"/>
+                <button class="button button-inline" id="searchBtn"> Search </button>
+            </div>
+            <div id="results" class="results"></div>
+            <a href="../index.html" class="button back-link"> Back to Home </a>
+        </div>
+    </body>
+</html>

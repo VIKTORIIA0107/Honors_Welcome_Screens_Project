@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Floor Map</title>
+        <link rel="stylesheet" href="../css/style.css">
+        <script defer src="../js/script.js"></script>
+    </head>
+    <body>
+        <header>
+
+        </header><h1>Floor Map</h1>
+        <p id="selectedRoomText">Select a floor</p>
+    </header>
+    <div class="container map-container">
+        <div class="floor-tabs">
+            <button class="tab active" data-floor="ground">Ground Floor</button>
+            <button class="tab" data-floor="first">1st Floor</button>
+            <button class="tab" data-floor="second">2nd Floor</button>
+        </div>
+        <div class="map-wrapper">
+            <img id="groundMap" class="floor-map active-map" src="../assets/ground-floor.png" alt="Ground Floor"/>
+            <img id="firstMap" class="floor-map" src="../assets/first-floor.png" alt="First Floor"/>
+            <img id="secondMap" class="floor-map" src="../assets/second-floor.png" alt="Second Floor"/>
+        </div>
+        <a href="../index.html" class="button back-link">Back to Home</a>
+    </div>
+</body>
+</html>
