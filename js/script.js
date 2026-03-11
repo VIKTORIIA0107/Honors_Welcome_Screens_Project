@@ -1,245 +1,351 @@
-/*Queen Mother Building Wayfinding SystemHandles search and map navigation
-*/
-
-function normalize(str){
-return (str||"").toLowerCase().trim();
-}
-
-function renderResults(list){
-    const results=document.getElementById("results");
-    if(!results)return;
-    results.innerHTML="";
-    list.forEach(room=>{
-        const card=document.createElement("div");
-        card.className="result-card";
-        card.innerHTML=`
-    <div>
-<b>${room.room} ${room.id}</b><br>
-${room.lecturer ? "Lecturer: "+room.lecturer : ""}
-${room.module ? " • "+room.module : ""}
-</div>
-<button class="small-btn" onclick="showRoom('${room.id}','${room.floor}')">Show Map</button>`;
-results.appendChild(card);
-});
-}
-
-function doSearch(){
-    const input=document.getElementById("roomQuery");
-    if(!input)return;
-    const q=normalize(input.value);
-    if(!q)return;
-    const matches=ROOMS.filter(r=>
-
-normalize(r.id).includes(q)||
-normalize(r.room).includes(q)||
-normalize(r.lecturer).includes(q)||
-normalize(r.module).includes(q)
-
-);
-
-renderResults(matches);
-}
-
-function showRoom(id,floor){
-    window.location.href=`map.html?room=${id}&floor=${floor}`;
-}
-
-document.addEventListener("DOMContentLoaded",()=>{
-    const btn=document.getElementById("searchBtn");
-    const input=document.getElementById("roomQuery");
-if(btn)btn.addEventListener("click",doSearch);
-if(input){
-    input.addEventListener("keydown",e=>{
-        if(e.key==="Enter")doSearch();
-    });
-}
-const tabs=document.querySelectorAll(".tab");
-const maps=document.querySelectorAll(".floor-map");
-
-if(tabs.length>0){
-    tabs.forEach(tab=>{
-        tab.addEventListener("click",()=>{const floor=tab.dataset.floor;
-            maps.forEach(m=>m.classList.remove("active-map"));
-            document.getElementById(floor+"Map").classList.add("active-map");
-            tabs.forEach(t=>t.classList.remove("active"));
-            tab.classList.add("active");
-        });
-    });
-}
-});
-
-const params = new URLSearchParams(window.location.search);
-const floor = params.get("floor");
-
-if(floor){
-    document.getElementById(floor+"Map").classList.add("active-map");
-    document.querySelector(`[data-floor="${floor}"]`).classList.add("active");
-}
-// GLOBAL DATA
 let roomsData = [];
+let currentMarkerData = null;
 
-// Load rooms.json dynamically
 document.addEventListener("DOMContentLoaded", async () => {
-  try {
-    const res = await fetch("../data/rooms.js");
-    const data = await res.json();
-    roomsData = data.rooms;
-  } catch (err) {
-    console.warn("rooms.js not found!", err);
-  }
+  await loadRoomData();
 
   setupSearch();
+  setupFloorTabs();
+  setupFacilities();
+  initialiseMapPage();
 });
 
-// ---------------- SEARCH FUNCTIONALITY ----------------
-function setupSearch() {
-  const btn = document.getElementById("searchBtn");
-  const input = document.getElementById("searchInput");
-  const results = document.getElementById("results");
+async function loadRoomData() {
+  try {
+    const response = await fetch("../data/rooms.json");
 
-  if (!btn || !input || !results) return;
+    if (!response.ok) {
+      throw new Error(`HTTP ${response.status}`);
+    }
 
-  btn.addEventListener("click", () => {
-    const query = input.value.toLowerCase().trim();
+    const data = await response.json();
 
-    const matches = roomsData.filter(r =>
-      r.room.toLowerCase().includes(query) ||
-      r.name.toLowerCase().includes(query) ||
-      (r.lecturer && r.lecturer.toLowerCase().includes(query))
-    );
+    if (Array.isArray(data.rooms)) {
+      roomsData = data.rooms;
+    } else if (Array.isArray(data.room)) {
+      roomsData = data.room;
+    } else if (Array.isArray(data)) {
+      roomsData = data;
+    } else {
+      roomsData = [];
+    }
+  } catch (error) {
+    console.error("Could not load rooms.json:", error);
+    roomsData = [];
 
-    displayResults(matches);
-  });
+    const message = document.getElementById("searchMessage");
+    if (message) {
+      message.textContent = "Could not load room data.";
+    }
+  }
 }
 
-// Display search results
-function displayResults(results) {
-  const container = document.getElementById("results");
-  container.innerHTML = "";
+/* ---------------- SEARCH ---------------- */
 
-  if (results.length === 0) {
-    container.innerHTML = "<p>No results found</p>";
+function setupSearch() {
+  const searchBtn = document.getElementById("searchBtn");
+  const searchInput = document.getElementById("searchInput");
+
+  if (!searchBtn || !searchInput) return;
+
+  searchBtn.addEventListener("click", performSearch);
+  searchInput.addEventListener("keydown", (event) => {
+    if (event.key === "Enter") {
+      performSearch();
+    }
+  });
+
+  const params = new URLSearchParams(window.location.search);
+  const initialQuery = params.get("q");
+
+  if (initialQuery) {
+    searchInput.value = initialQuery;
+    performSearch();
+  }
+}
+
+function performSearch() {
+  const searchInput = document.getElementById("searchInput");
+  const resultsContainer = document.getElementById("results");
+  const message = document.getElementById("searchMessage");
+
+  if (!searchInput || !resultsContainer) return;
+
+  const query = searchInput.value.trim().toLowerCase();
+  resultsContainer.innerHTML = "";
+
+  if (message) message.textContent = "";
+
+  if (!query) {
+    if (message) {
+      message.textContent = "Enter a room code, room name, lecturer, or facility.";
+    }
     return;
   }
 
-  results.forEach(r => {
-    const div = document.createElement("div");
-    div.className = "result";
+  const matches = roomsData.filter((item) => {
+    const roomCode = String(item.room || item.rooms || "").toLowerCase();
+    const name = String(item.name || "").toLowerCase();
+    const lecturer = String(item.lecturer || "").toLowerCase();
+    const type = String(item.type || "").toLowerCase();
+    const keywords = Array.isArray(item.keywords)
+      ? item.keywords.join(" ").toLowerCase()
+      : "";
 
-    div.innerHTML = `
-      <div class="result-info">
-        <h3>${r.room} — ${r.name}</h3>
-        <p>${r.lecturer || "No lecturer assigned"}</p>
+    return (
+      roomCode.includes(query) ||
+      name.includes(query) ||
+      lecturer.includes(query) ||
+      type.includes(query) ||
+      keywords.includes(query)
+    );
+  });
+
+  renderResults(matches, query);
+}
+
+function renderResults(list, query = "") {
+  const resultsContainer = document.getElementById("results");
+  const message = document.getElementById("searchMessage");
+
+  if (!resultsContainer) return;
+
+  resultsContainer.innerHTML = "";
+
+  if (list.length === 0) {
+    if (message) {
+      message.textContent = `No results found for "${query}".`;
+    }
+
+    resultsContainer.innerHTML = `
+      <div class="empty-state">
+        No rooms, lecturers, or facilities matched your search.
       </div>
+    `;
+    return;
+  }
 
-      <button class="map-button"
-        onclick="openMap('${r.floor}',${r.x},${r.y},'${r.room}')">
-        📍 Show on Map
-      </button>
+  if (message) {
+    message.textContent = `${list.length} result${list.length === 1 ? "" : "s"} found.`;
+  }
+
+  list.forEach((item) => {
+    const code = item.room || item.rooms || "";
+    const title = item.name || code || "Unnamed location";
+
+    const subtitleParts = [];
+    if (code && item.name) subtitleParts.push(`Room ${code}`);
+    if (item.lecturer) subtitleParts.push(`Lecturer: ${item.lecturer}`);
+    if (item.floor) subtitleParts.push(`${capitalise(item.floor)} floor`);
+    if (item.type) subtitleParts.push(capitalise(item.type));
+
+    const card = document.createElement("div");
+    card.className = "result-card";
+
+    card.innerHTML = `
+      <div class="result-info">
+        <h3>${escapeHtml(title)}</h3>
+        <p>${subtitleParts.map(escapeHtml).join(" • ")}</p>
+      </div>
+      <button class="small-btn" type="button">Show on Map</button>
     `;
 
-    container.appendChild(div);
+    card.querySelector(".small-btn").addEventListener("click", () => {
+      openMap(item);
+    });
+
+    resultsContainer.appendChild(card);
   });
 }
 
-// Navigate to map page with floor & coordinates
-function openMap(floor, x, y, label) {
-  window.location.href = `map.html?floor=${floor}&x=${x}&y=${y}&label=${label}`;
+/* ---------------- MAP ---------------- */
+
+function openMap(item) {
+  const params = new URLSearchParams({
+    floor: item.floor || "ground",
+    x: String(Number(item.x) || 0),
+    y: String(Number(item.y) || 0),
+    label: item.name || item.room || item.rooms || "Selected location"
+  });
+
+  window.location.href = `map.html?${params.toString()}`;
 }
 
-// FLOOR TAB SWITCHING
 function setupFloorTabs() {
   const tabs = document.querySelectorAll(".tab");
-  const maps = document.querySelectorAll(".floor-map");
-
   if (!tabs.length) return;
 
-  tabs.forEach(tab => {
+  tabs.forEach((tab) => {
     tab.addEventListener("click", () => {
-      const floor = tab.dataset.floor;
-      maps.forEach(m => m.classList.remove("active-map"));
-      tabs.forEach(t => t.classList.remove("active"));
-      document.getElementById(floor + "Map").classList.add("active-map");
-      tab.classList.add("active");
+      activateFloor(tab.dataset.floor);
     });
   });
 }
 
-// SHOW MARKER FROM URL
-function showMapFromURL() {
+function activateFloor(floor) {
+  const tabs = document.querySelectorAll(".tab");
+  const maps = document.querySelectorAll(".floor-map");
+
+  tabs.forEach((tab) => {
+    tab.classList.toggle("active", tab.dataset.floor === floor);
+  });
+
+  maps.forEach((map) => {
+    map.classList.remove("active-map");
+  });
+
+  const activeMap = document.getElementById(`${floor}Map`);
+  if (activeMap) {
+    activeMap.classList.add("active-map");
+  }
+
+  updateMarkerPosition();
+}
+
+function initialiseMapPage() {
   const marker = document.getElementById("marker");
   if (!marker) return;
 
   const params = new URLSearchParams(window.location.search);
   const floor = params.get("floor");
-  const x = params.get("x");
-  const y = params.get("y");
+  const x = Number(params.get("x"));
+  const y = Number(params.get("y"));
   const label = params.get("label");
 
-  if (!floor || !x || !y) return;
+  if (!floor) return;
 
-  document.querySelectorAll(".floor-map").forEach(m => m.classList.remove("active-map"));
-  const targetMap = document.getElementById(floor + "Map");
-  if (targetMap) targetMap.classList.add("active-map");
+  currentMarkerData = {
+    floor,
+    x,
+    y,
+    label: label || "Selected location"
+  };
 
-  marker.style.left = x + "px";
-  marker.style.top = y + "px";
-  marker.style.display = "block";
+  activateFloor(floor);
 
-  const text = document.getElementById("selectedRoomText");
-  if (text) text.textContent = label + " location";
+  const selectedRoomText = document.getElementById("selectedRoomText");
+  if (selectedRoomText) {
+    selectedRoomText.textContent = `${currentMarkerData.label}`;
+  }
+
+  const activeImage = document.getElementById(`${floor}Map`);
+  if (activeImage) {
+    if (activeImage.complete) {
+      updateMarkerPosition();
+    } else {
+      activeImage.addEventListener("load", updateMarkerPosition);
+    }
+  }
+
+  window.addEventListener("resize", updateMarkerPosition);
 }
 
-// Run on page load
-document.addEventListener("DOMContentLoaded", () => {
-  setupFloorTabs();
-  showMapFromURL();
-});
+function updateMarkerPosition() {
+  const marker = document.getElementById("marker");
+  if (!marker || !currentMarkerData) return;
 
-// ---------------- FACILITIES PAGE ----------------
+  const activeMap = document.querySelector(".floor-map.active-map");
+  const mapWrapper = document.querySelector(".map-wrapper");
+
+  if (!activeMap || !mapWrapper) return;
+
+  if (
+    currentMarkerData.floor !== activeMap.id.replace("Map", "")
+  ) {
+    marker.style.display = "none";
+    return;
+  }
+
+  const naturalWidth = activeMap.naturalWidth;
+  const naturalHeight = activeMap.naturalHeight;
+
+  if (!naturalWidth || !naturalHeight) {
+    marker.style.display = "none";
+    return;
+  }
+
+  const displayedWidth = activeMap.clientWidth;
+  const displayedHeight = activeMap.clientHeight;
+
+  const scaleX = displayedWidth / naturalWidth;
+  const scaleY = displayedHeight / naturalHeight;
+
+  const imageLeft = activeMap.offsetLeft;
+  const imageTop = activeMap.offsetTop;
+
+  const scaledX = imageLeft + currentMarkerData.x * scaleX;
+  const scaledY = imageTop + currentMarkerData.y * scaleY;
+
+  marker.style.left = `${scaledX}px`;
+  marker.style.top = `${scaledY}px`;
+  marker.style.display = "block";
+}
+
+/* ---------------- FACILITIES ---------------- */
+
 function setupFacilities() {
-    const container = document.getElementById("facilityList");
-    if (!container || roomsData.length === 0) return;
+  const container = document.getElementById("facilityList");
+  if (!container) return;
 
-    const tabs = document.querySelectorAll(".floor-tabs .tab");
+  const tabs = document.querySelectorAll(".floor-tabs .tab");
+  const facilities = roomsData.filter((item) => item.type === "facility");
 
-    // Filter facilities (type="facility")
-    const facilities = roomsData.filter(r => r.type === "facility");
+  function renderFacilities(floor) {
+    container.innerHTML = "";
 
-    // Show only facilities for selected floor
-    function renderFacilities(floor) {
-        container.innerHTML = "";
-        const floorFacilities = facilities.filter(f => f.floor === floor);
+    const floorFacilities = facilities.filter((item) => item.floor === floor);
 
-        floorFacilities.forEach(f => {
-            const div = document.createElement("div");
-            div.className = "facility-card";
-
-            div.innerHTML = `
-                <h3>${f.name}</h3>
-                <p>Floor: ${f.floor.charAt(0).toUpperCase() + f.floor.slice(1)}</p>
-                <button onclick="openMap('${f.floor}',${f.x},${f.y},'${f.name}')">
-                    📍 Show on Map
-                </button>
-            `;
-
-            container.appendChild(div);
-        });
+    if (!floorFacilities.length) {
+      container.innerHTML = `<div class="empty-state">No facilities listed for this floor.</div>`;
+      return;
     }
 
-    // Initial render (active tab)
-    const activeTab = document.querySelector(".floor-tabs .tab.active");
-    if(activeTab) renderFacilities(activeTab.dataset.floor);
+    floorFacilities.forEach((facility) => {
+      const div = document.createElement("div");
+      div.className = "facility-card";
 
-    // Handle floor tab clicks
-    tabs.forEach(tab => {
-        tab.addEventListener("click", () => {
-            tabs.forEach(t => t.classList.remove("active"));
-            tab.classList.add("active");
-            renderFacilities(tab.dataset.floor);
-        });
+      const label = facility.name || facility.room || facility.rooms || "Facility";
+
+      div.innerHTML = `
+        <h3>${escapeHtml(label)}</h3>
+        <p>${capitalise(facility.floor)} floor</p>
+        <button type="button">Show on Map</button>
+      `;
+
+      div.querySelector("button").addEventListener("click", () => {
+        openMap(facility);
+      });
+
+      container.appendChild(div);
     });
+  }
+
+  const activeTab = document.querySelector(".floor-tabs .tab.active");
+  if (activeTab) {
+    renderFacilities(activeTab.dataset.floor);
+  }
+
+  tabs.forEach((tab) => {
+    tab.addEventListener("click", () => {
+      tabs.forEach((t) => t.classList.remove("active"));
+      tab.classList.add("active");
+      renderFacilities(tab.dataset.floor);
+    });
+  });
 }
 
-// Call on page load
-document.addEventListener("DOMContentLoaded", setupFacilities);
+/* ---------------- HELPERS ---------------- */
+
+function capitalise(value) {
+  if (!value) return "";
+  return value.charAt(0).toUpperCase() + value.slice(1);
+}
+
+function escapeHtml(value) {
+  return String(value)
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#039;");
+}

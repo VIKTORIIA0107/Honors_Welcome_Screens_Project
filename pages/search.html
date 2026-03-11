@@ -1,24 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Find a Room or Lecturer</title>
-        <link rel="stylesheet" href="../css/style.css">
-        <script defer src="../js/script.js"></script>
-    </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Find a Room or Lecturer</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <script defer src="../js/script.js"></script>
+</head>
 <body>
-    <header class="search-header">
-        <h1>Find a Room or Lecturer</h1>
-        <p>Search by room number, room name, or lecturer</p>
+  <main class="page-shell">
+    <header class="page-header">
+      <h1>Find a Room or Lecturer</h1>
+      <p>Search by room code, room name, lecturer, or facility</p>
     </header>
-    <div class="container search-container">
-        <div class="search-box">
-            <input id="searchInput" class="search-input" type="text" placeholder="Search room number, room name, or lecturer">
-            <button id="searchBtn" class="search-button"> 🔍 Search</button>
-        </div>
-        <div id="results" class="results"></div>
-        <a href="../index.html" class="button back-link">← Back to Home</a>
-    </div>
+
+    <section class="container search-container">
+      <div class="search-box">
+        <input
+          id="searchInput"
+          class="search-input"
+          type="text"
+          placeholder="Example: 1.12, lecture theatre, Dr Smith, toilets"
+          autocomplete="off"
+        />
+        <button id="searchBtn" class="search-button" type="button">Search</button>
+      </div>
+
+      <p id="searchMessage" class="search-message"></p>
+      <div id="results" class="results"></div>
+
+      <a href="../index.html" class="button back-link">← Back to Home</a>
+    </section>
+  </main>
 </body>
 </html>

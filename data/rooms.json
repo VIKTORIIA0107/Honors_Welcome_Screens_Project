@@ -1,0 +1,76 @@
+{
+  "rooms": [
+    {
+      "room": "G08",
+      "name": "Seminar Room",
+      "lecturer": "",
+      "floor": "ground",
+      "type": "room",
+      "x": 1460,
+      "y": 470,
+      "keywords": ["seminar", "teaching"]
+    },
+    {
+      "room": "G16",
+      "name": "Lecture Theatre",
+      "lecturer": "",
+      "floor": "ground",
+      "type": "room",
+      "x": 860,
+      "y": 720,
+      "keywords": ["lecture", "theatre", "teaching"]
+    },
+    {
+      "room": "1.12",
+      "name": "Computer Suite",
+      "lecturer": "Dr Smith",
+      "floor": "first",
+      "type": "room",
+      "x": 1530,
+      "y": 355,
+      "keywords": ["computers", "it", "lab"]
+    },
+    {
+      "room": "2.06",
+      "name": "Meeting Room",
+      "lecturer": "",
+      "floor": "second",
+      "type": "room",
+      "x": 1035,
+      "y": 270,
+      "keywords": ["meeting"]
+    },
+    {
+      "name": "Lift",
+      "floor": "ground",
+      "type": "facility",
+      "x": 585,
+      "y": 525,
+      "keywords": ["accessible", "elevator"]
+    },
+    {
+      "name": "WC - Ladies",
+      "floor": "ground",
+      "type": "facility",
+      "x": 805,
+      "y": 445,
+      "keywords": ["toilet", "bathroom", "wc"]
+    },
+    {
+      "name": "WC - Gents",
+      "floor": "ground",
+      "type": "facility",
+      "x": 975,
+      "y": 445,
+      "keywords": ["toilet", "bathroom", "wc"]
+    },
+    {
+      "name": "Accessible WC",
+      "floor": "first",
+      "type": "facility",
+      "x": 705,
+      "y": 430,
+      "keywords": ["toilet", "bathroom", "accessible", "wc"]
+    }
+  ]
+}

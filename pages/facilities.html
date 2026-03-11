@@ -1,26 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Facilities</title>
-<link rel="stylesheet" href="../css/style.css">
-<script defer src="../js/script.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Facilities</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <script defer src="../js/script.js"></script>
 </head>
 <body>
+  <main class="page-shell">
+    <header class="page-header">
+      <h1>Facilities</h1>
+      <p>Select a floor to view available facilities</p>
+    </header>
 
-<header class="page-header">
-    <h1>Facilities</h1>
-    <p>Select a floor to see all available facilities</p>
-</header>
+    <section class="container facilities-container">
+      <div class="floor-tabs">
+        <button class="tab active" data-floor="ground" type="button">Ground Floor</button>
+        <button class="tab" data-floor="first" type="button">First Floor</button>
+        <button class="tab" data-floor="second" type="button">Second Floor</button>
+      </div>
 
-<div class="container facilities-container">
+      <div id="facilityList" class="facility-grid"></div>
 
-    <!-- Facilities Grid -->
-    <div id="facilityList" class="facility-grid"></div>
-
-    <a href="../index.html" class="button back-link"> ← Back to Home</a>
-</div>
-
+      <a href="../index.html" class="button back-link">← Back to Home</a>
+    </section>
+  </main>
 </body>
 </html>
