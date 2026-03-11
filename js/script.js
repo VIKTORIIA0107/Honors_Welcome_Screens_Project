@@ -161,11 +161,16 @@ function renderResults(list, query = "") {
 /* ---------------- MAP ---------------- */
 
 function openMap(item) {
+  const fromPage = window.location.pathname.includes("facilities")
+    ? "facilities"
+    : "search";
+
   const params = new URLSearchParams({
     floor: item.floor || "ground",
     x: String(Number(item.x) || 0),
     y: String(Number(item.y) || 0),
-    label: item.name || item.room || item.rooms || "Selected location"
+    label: item.name || item.room || item.rooms || "Selected location",
+    from: fromPage
   });
 
   window.location.href = `map.html?${params.toString()}`;
