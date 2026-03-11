@@ -230,10 +230,6 @@ body {
   padding: 8px;
 }
 
-.active-map {
-  display: block;
-}
-
 .marker {
   position: absolute;
   width: 22px;

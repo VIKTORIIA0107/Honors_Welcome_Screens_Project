@@ -8,6 +8,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   setupFloorTabs();
   setupFacilities();
   initialiseMapPage();
+  setupBackButton();
 });
 
 async function loadRoomData() {
@@ -189,19 +190,28 @@ function setupFloorTabs() {
 
 function activateFloor(floor) {
   const tabs = document.querySelectorAll(".tab");
-  const maps = document.querySelectorAll(".floor-map");
+  const groundMap = document.getElementById("groundMap");
+  const firstMap = document.getElementById("firstMap");
+  const secondMap = document.getElementById("secondMap");
 
   tabs.forEach((tab) => {
     tab.classList.toggle("active", tab.dataset.floor === floor);
   });
 
-  maps.forEach((map) => {
-    map.classList.remove("active-map");
-  });
+  if (groundMap) groundMap.style.display = "none";
+  if (firstMap) firstMap.style.display = "none";
+  if (secondMap) secondMap.style.display = "none";
 
-  const activeMap = document.getElementById(`${floor}Map`);
-  if (activeMap) {
-    activeMap.classList.add("active-map");
+  if (floor === "ground" && groundMap) {
+    groundMap.style.display = "block";
+  }
+
+  if (floor === "first" && firstMap) {
+    firstMap.style.display = "block";
+  }
+
+  if (floor === "second" && secondMap) {
+    secondMap.style.display = "block";
   }
 
   updateMarkerPosition();
@@ -226,14 +236,20 @@ function initialiseMapPage() {
     label: label || "Selected location"
   };
 
-  activateFloor(floor);
-
   const selectedRoomText = document.getElementById("selectedRoomText");
   if (selectedRoomText) {
-    selectedRoomText.textContent = `${currentMarkerData.label}`;
+    selectedRoomText.textContent = currentMarkerData.label;
   }
 
-  const activeImage = document.getElementById(`${floor}Map`);
+  activateFloor(floor);
+
+  const activeImage =
+    floor === "ground"
+      ? document.getElementById("groundMap")
+      : floor === "first"
+      ? document.getElementById("firstMap")
+      : document.getElementById("secondMap");
+
   if (activeImage) {
     if (activeImage.complete) {
       updateMarkerPosition();
@@ -249,14 +265,17 @@ function updateMarkerPosition() {
   const marker = document.getElementById("marker");
   if (!marker || !currentMarkerData) return;
 
-  const activeMap = document.querySelector(".floor-map.active-map");
-  const mapWrapper = document.querySelector(".map-wrapper");
+  let activeMap = null;
 
-  if (!activeMap || !mapWrapper) return;
+  if (currentMarkerData.floor === "ground") {
+    activeMap = document.getElementById("groundMap");
+  } else if (currentMarkerData.floor === "first") {
+    activeMap = document.getElementById("firstMap");
+  } else if (currentMarkerData.floor === "second") {
+    activeMap = document.getElementById("secondMap");
+  }
 
-  if (
-    currentMarkerData.floor !== activeMap.id.replace("Map", "")
-  ) {
+  if (!activeMap || activeMap.style.display === "none") {
     marker.style.display = "none";
     return;
   }
@@ -337,6 +356,25 @@ function setupFacilities() {
       renderFacilities(tab.dataset.floor);
     });
   });
+}
+
+function setupBackButton() {
+  const backButton = document.getElementById("backButton");
+  if (!backButton) return;
+
+  const params = new URLSearchParams(window.location.search);
+  const from = params.get("from");
+
+  if (from === "facilities") {
+    backButton.href = "facilities.html";
+    backButton.textContent = "← Back to Facilities";
+  } else if (from === "search") {
+    backButton.href = "search.html";
+    backButton.textContent = "← Back to Search";
+  } else {
+    backButton.href = "../index.html";
+    backButton.textContent = "← Back to Home";
+  }
 }
 
 /* ---------------- HELPERS ---------------- */
