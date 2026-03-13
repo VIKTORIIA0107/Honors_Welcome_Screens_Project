@@ -3,9 +3,9 @@
     { 
     "room": "G01", 
     "name": "Foyer", 
-    "lecturer": "", 
+    "lecturer": "",
     "floor": "ground", 
-    "type": "", 
+    "type": "entry", 
     "x": 124, 
     "y": 563, 
     "keywords": ["enterence"] 
@@ -15,7 +15,7 @@
       "name": "Office",
       "lecturer": "",
       "floor": "ground",
-      "type": "room",
+      "type": "office",
       "x": 225,
       "y": 408,
       "keywords": ["information", "enterence", "help"]
@@ -35,7 +35,7 @@
       "name": "Space",
       "lecturer": "",
       "floor": "ground",
-      "type": "lab",
+      "type": "space",
       "x": 576,
       "y": 406,
       "keywords": ["group space", "it", "lab"]
@@ -55,7 +55,7 @@
       "name": "Office",
       "lecturer": "",
       "floor": "ground",
-      "type": "lab",
+      "type": "office",
       "x": 957,
       "y": 406,
       "keywords": ["office", "it", "lab", "meeting"]
@@ -75,7 +75,7 @@
       "name": "Office",
       "lecturer": "",
       "floor": "ground",
-      "type": "lab",
+      "type": "office",
       "x": 1311,
       "y": 418,
       "keywords": ["office", "it", "help"]
@@ -111,7 +111,7 @@
       "room": "CG16",
       "name": "Circulation Space",
       "floor": "ground",
-      "type": "facility",
+      "type": "space",
       "x": 615,
       "y": 661,
       "keywords": ["computers", "it", "group space"]
@@ -121,7 +121,7 @@
       "name": "Wolfston Theatre",
       "lecturer": "",
       "floor": "ground",
-      "type": "lab",
+      "type": "room",
       "x": 768,
       "y": 874,
       "keywords": ["meeting", "lecture", "seminar"]
@@ -131,7 +131,7 @@
       "name": "Computer Suite",
       "lecturer": "",
       "floor": "ground",
-      "type": "lab",
+      "type": "space",
       "x": 430,
       "y": 785,
       "keywords": ["computers", "it", "group space"]
@@ -199,6 +199,257 @@
       "x": 630,
       "y": 576,
       "keywords": ["toilet", "bathroom", "accessible", "wc"]
+    },
+
+
+    {
+      "room": "1.01",
+      "name": "Office",
+      "lecturer": "",
+      "floor": "first",
+      "type": "office",
+      "x": 149,
+      "y": 597,
+      "keywords": ["office"]
+    },
+    {
+      "room": "1.02",
+      "name": "Office",
+      "lecturer": "",
+      "floor": "first",
+      "type": "office",
+      "x": 177,
+      "y": 481,
+      "keywords": ["office"]
+    },
+    {
+      "room": "1.03",
+      "name": "Office",
+      "lecturer": "",
+      "floor": "first",
+      "type": "office",
+      "x": 292,
+      "y": 575,
+      "keywords": ["office"]
+    },
+    {
+      "room": "1.04",
+      "name": "Office",
+      "lecturer": "",
+      "floor": "first",
+      "type": "office",
+      "x": 314,
+      "y": 367,
+      "keywords": ["office"]
+    },
+    {
+      "room": "1.05",
+      "name": "Office",
+      "lecturer": "",
+      "floor": "first",
+      "type": "office",
+      "x": 515,
+      "y": 282,
+      "keywords": ["office"]
+    },
+    {
+      "room": "1.06",
+      "name": "Meeting Room",
+      "lecturer": "",
+      "floor": "first",
+      "type": "office",
+      "x": 754,
+      "y": 358,
+      "keywords": ["office", "meeting"]
+    },
+    {
+      "room": "1.07",
+      "name": "Office",
+      "lecturer": "",
+      "floor": "first",
+      "type": "office",
+      "x": 988,
+      "y": 290,
+      "keywords": ["office"]
+    },
+    {
+      "room": "1.08",
+      "name": "Office",
+      "lecturer": "",
+      "floor": "first",
+      "type": "office",
+      "x": 1189,
+      "y": 363,
+      "keywords": ["office"]
+    },
+    {
+      "room": "1.09",
+      "name": "Office",
+      "lecturer": "Dr Alison Paese",
+      "floor": "first",
+      "type": "office",
+      "x": 1280,
+      "y": 358,
+      "keywords": ["office"]
+    },
+    {
+      "room": "1.10",
+      "name": "Office",
+      "lecturer": "",
+      "floor": "first",
+      "type": "office",
+      "x": 1475,
+      "y": 290,
+      "keywords": ["office"]
+    },
+    {
+      "room": "1.11",
+      "name": "Office",
+      "lecturer": "",
+      "floor": "first",
+      "type": "office",
+      "x": 1687,
+      "y": 366,
+      "keywords": ["office"]
+    },
+    {
+      "room": "1.12",
+      "name": "Computer Suite",
+      "lecturer": "",
+      "floor": "first",
+      "type": "room",
+      "x": 1778,
+      "y": 555,
+      "keywords": ["group space", "it", "computers"]
+    },
+    {
+      "room": "1.12A",
+      "name": "Common Suite",
+      "lecturer": "",
+      "floor": "first",
+      "type": "room",
+      "x":1538,
+      "y": 652,
+      "keywords": ["group space"]
+    },
+    {
+      "room": "1.13",
+      "name": "Computer Suite",
+      "lecturer": "",
+      "floor": "first",
+      "type": "room",
+      "x": 1445,
+      "y": 835,
+      "keywords": ["group space", "it", "computers"]
+    },
+    {
+      "name": "WC - Ladies",
+      "floor": "first",
+      "type": "facility",
+      "x": 919,
+      "y": 552,
+      "keywords": ["toilet", "bathroom", "wc"]
+    },
+    {
+      "name": "WC - Gents",
+      "floor": "first",
+      "type": "facility",
+      "x": 1112,
+      "y": 557,
+      "keywords": ["toilet", "bathroom", "wc"]
+    },{
+      "name": "Accessible WC",
+      "floor": "first",
+      "type": "facility",
+      "x": 831,
+      "y": 549,
+      "keywords": ["toilet", "bathroom", "wc"]
+    },
+    {
+      "room": "1.16",
+      "name": "Lecture Theatre",
+      "lecturer": "",
+      "floor": "first",
+      "type": "room",
+      "x": 994,
+      "y": 860,
+      "keywords": ["meeting", "lecture", "seminar"]
+    },
+    {
+      "room": "1.18",
+      "name": "Office",
+      "lecturer": "",
+      "floor": "first",
+      "type": "office",
+      "x": 570,
+      "y": 776,
+      "keywords": ["office"]
+    },
+    {
+      "room": "1.19",
+      "name": "Office",
+      "lecturer": "Dr John Lawrence",
+      "floor": "first",
+      "type": "office",
+      "x": 661,
+      "y": 854,
+      "keywords": ["office"]
+    },
+    {
+      "room": "1.20",
+      "name": "Office",
+      "lecturer": "",
+      "floor": "first",
+      "type": "office",
+      "x": 589,
+      "y": 941,
+      "keywords": ["office"]
+    },
+    {
+      "room": "1.21",
+      "name": "Office",
+      "lecturer": "Dr Chris Reed",
+      "floor": "first",
+      "type": "office",
+      "x": 485,
+      "y": 903,
+      "keywords": ["office"]
+    },
+    {
+      "room": "1.22",
+      "name": "Office",
+      "lecturer": "",
+      "floor": "first",
+      "type": "office",
+      "x": 474,
+      "y": 792,
+      "keywords": ["office"]
+    },
+    {
+      "room": "1.23",
+      "name": "Circulation Space",
+      "lecturer": "",
+      "floor": "first",
+      "type": "office",
+      "x": 433,
+      "y": 660,
+      "keywords": ["office"]
+    },
+    {
+      "name": "Stairs",
+      "floor": "first",
+      "type": "facility",
+      "x": 438,
+      "y": 580,
+      "keywords": ["stairs", "staircase"]
+    },
+    {
+      "name": "Lift",
+      "floor": "first",
+      "type": "facility",
+      "x": 666,
+      "y": 643,
+      "keywords": ["lift", "elevator"]
     }
   ]
 }

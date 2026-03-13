@@ -71,7 +71,7 @@
   },
   {
     "name": "Dr John Lawrence ",
-    "room": "",
+    "room": "1.19",
     "department": "Mathematics"
   },
   {
@@ -82,6 +82,11 @@
   {
     "name": "Dr Michael Crabb",
     "room": "",
+    "department": "Mathematics"
+  },
+  {
+    "name": "Dr Chriss Reed",
+    "room": "1.21",
     "department": "Mathematics"
   }
 ]
