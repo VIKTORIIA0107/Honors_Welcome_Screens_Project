@@ -1,0 +1,12 @@
+[
+  {
+    "name": "Dr John Smith",
+    "room": "G07",
+    "department": "Computer Science"
+  },
+  {
+    "name": "Dr Sarah White",
+    "room": "1.22",
+    "department": "Mathematics"
+  }
+]

@@ -1,58 +1,178 @@
 {
   "rooms": [
     {
-      "room": "G08",
-      "name": "Seminar Room",
+      "room": "G01",
+      "name": "Foyer",
       "lecturer": "",
       "floor": "ground",
-      "type": "room",
+      "type": "",
       "x": 1460,
       "y": 470,
-      "keywords": ["seminar", "teaching"]
+      "keywords": ["enterence"]
     },
     {
-      "room": "G16",
-      "name": "Lecture Theatre",
+      "room": "G02",
+      "name": "Office",
       "lecturer": "",
       "floor": "ground",
       "type": "room",
       "x": 860,
       "y": 720,
-      "keywords": ["lecture", "theatre", "teaching"]
+      "keywords": ["information", "enterence", "help"]
     },
     {
-      "room": "1.12",
+      "room": "G03",
       "name": "Computer Suite",
-      "lecturer": "Dr Smith",
-      "floor": "first",
-      "type": "room",
+      "lecturer": "",
+      "floor": "ground",
+      "type": "lab",
       "x": 1530,
       "y": 355,
       "keywords": ["computers", "it", "lab"]
     },
     {
-      "room": "2.06",
-      "name": "Meeting Room",
+      "room": "CG03",
+      "name": "Space",
       "lecturer": "",
-      "floor": "second",
+      "floor": "ground",
+      "type": "lab",
+      "x": 1530,
+      "y": 355,
+      "keywords": ["group space", "it", "lab"]
+    },
+    {
+      "room": "G04",
+      "name": "Computer Suite",
+      "lecturer": "",
+      "floor": "ground",
+      "type": "lab",
+      "x": 1530,
+      "y": 355,
+      "keywords": ["computers", "it", "lab"]
+    },
+    {
+      "room": "G05",
+      "name": "Office",
+      "lecturer": "",
+      "floor": "ground",
+      "type": "lab",
+      "x": 1530,
+      "y": 355,
+      "keywords": ["office", "it", "lab", "meeting"]
+    },
+    {
+      "room": "G06",
+      "name": "Computer Suite",
+      "lecturer": "",
+      "floor": "ground",
+      "type": "lab",
+      "x": 1530,
+      "y": 355,
+      "keywords": ["computers", "it", "lab"]
+    },
+    {
+      "room": "G07",
+      "name": "Office",
+      "lecturer": "",
+      "floor": "ground",
+      "type": "lab",
+      "x": 1530,
+      "y": 355,
+      "keywords": ["office", "it", "help"]
+    },
+    {
+      "room": "G08",
+      "name": "Seminar Room",
+      "lecturer": "",
+      "floor": "ground",
       "type": "room",
       "x": 1035,
       "y": 270,
-      "keywords": ["meeting"]
+      "keywords": ["meeting", "lecture", "seminar"]
+    },
+    {
+      "name": "WC - Shared",
+      "lecturer": "",
+      "floor": "ground",
+      "type": "lab",
+      "x": 1530,
+      "y": 355,
+      "keywords": ["toilet", "bathroom", "wc"]
+    },
+    {
+      "room": "G11",
+      "floor": "ground",
+      "type": "room",
+      "x": 585,
+      "y": 525,
+      "keywords": ["computers", "it", "lab"]
+    },
+    {
+      "room": "CG16",
+      "name": "Circulation Space",
+      "floor": "ground",
+      "type": "facility",
+      "x": 805,
+      "y": 445,
+      "keywords": ["computers", "it", "group space"]
+    },
+    {
+      "room": "G16 Lecture Theatre",
+      "name": "Wolfston Theatre",
+      "lecturer": "",
+      "floor": "ground",
+      "type": "lab",
+      "x": 1530,
+      "y": 355,
+      "keywords": ["meeting", "lecture", "seminar"]
+    },
+    {
+      "room": "G21",
+      "name": "Computer Suite",
+      "lecturer": "",
+      "floor": "ground",
+      "type": "lab",
+      "x": 1530,
+      "y": 355,
+      "keywords": ["computers", "it", "group space"]
     },
     {
       "name": "Lift",
       "floor": "ground",
       "type": "facility",
-      "x": 585,
-      "y": 525,
-      "keywords": ["accessible", "elevator"]
+      "x": 975,
+      "y": 445,
+      "keywords": ["lift", "elevator"]
+    },
+    {
+      "name": "Stairs",
+      "floor": "ground",
+      "type": "facility",
+      "x": 975,
+      "y": 445,
+      "keywords": ["stairs", "staircase"]
+    },
+    {
+      "name": "Kitchen",
+      "floor": "ground",
+      "type": "facility",
+      "x": 975,
+      "y": 445,
+      "keywords": ["kitchen", "food", "cooking"]
+    },
+    {
+      "name": "Cleaners Store",
+      "floor": "ground",
+      "type": "facility",
+      "x": 975,
+      "y": 445,
+      "keywords": ["cleaning", "supplies"]
     },
     {
       "name": "WC - Ladies",
       "floor": "ground",
       "type": "facility",
-      "x": 805,
+      "x": 975,
       "y": 445,
       "keywords": ["toilet", "bathroom", "wc"]
     },
@@ -66,7 +186,7 @@
     },
     {
       "name": "Accessible WC",
-      "floor": "first",
+      "floor": "ground",
       "type": "facility",
       "x": 705,
       "y": 430,
