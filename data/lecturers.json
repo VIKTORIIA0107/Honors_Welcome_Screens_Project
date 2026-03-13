@@ -1,12 +1,87 @@
 [
   {
-    "name": "Dr John Smith",
-    "room": "G07",
+    "name": "Dr Gemma Webster",
+    "room": "2.06",
     "department": "Computer Science"
   },
   {
-    "name": "Dr Sarah White",
-    "room": "1.22",
+    "name": "Dr Jacky Viser",
+    "room": "2.02",
+    "department": "Mathematics"
+  },
+  {
+    "name": "Prof. Manuel Trucco",
+    "room": "-",
+    "department": "Mathematics"
+  },
+  {
+    "name": "Mr Oluwafemi Samuel",
+    "room": "-",
+    "department": "Mathematics"
+  },
+  {
+    "name": "Dr Ramon Ruiz-Dolz",
+    "room": "2.05",
+    "department": "Mathematics"
+  },
+  {
+    "name": "Dr Daniel Rough",
+    "room": "-",
+    "department": "Mathematics"
+  },
+  {
+    "name": "Dr Craig Ramsay",
+    "room": "-",
+    "department": "Mathematics"
+  },
+  {
+    "name": "Dr Brian Plüss",
+    "room": "2.20",
+    "department": "Mathematics"
+  },
+  {
+    "name": "Dr Alison Paese",
+    "room": "1.09",
+    "department": "Mathematics"
+  },
+  {
+    "name": "Dr Tom Griffiths",
+    "room": "-",
+    "department": "Mathematics"
+  },
+  {
+    "name": "Dr Rachel Menzies",
+    "room": "-",
+    "department": "Mathematics"
+  },
+  {
+    "name": "Prof. Stephen McKenna ",
+    "room": "2.19",
+    "department": "Mathematics"
+  },
+  {
+    "name": "Dr Iain Martin",
+    "room": "-",
+    "department": "Mathematics"
+  },
+  {
+    "name": "Dr Ludovic Magerand",
+    "room": "2.18",
+    "department": "Mathematics"
+  },
+  {
+    "name": "Dr John Lawrence ",
+    "room": "",
+    "department": "Mathematics"
+  },
+  {
+    "name": "Dr Vladimir Janjic",
+    "room": "",
+    "department": "Mathematics"
+  },
+  {
+    "name": "Dr Michael Crabb",
+    "room": "",
     "department": "Mathematics"
   }
 ]

@@ -1,33 +1,33 @@
 {
-  "rooms": [
-    {
-      "room": "G01",
-      "name": "Foyer",
-      "lecturer": "",
-      "floor": "ground",
-      "type": "",
-      "x": 1460,
-      "y": 470,
-      "keywords": ["enterence"]
-    },
+  "rooms": [ 
+    { 
+    "room": "G01", 
+    "name": "Foyer", 
+    "lecturer": "", 
+    "floor": "ground", 
+    "type": "", 
+    "x": 124, 
+    "y": 563, 
+    "keywords": ["enterence"] 
+  },
     {
       "room": "G02",
       "name": "Office",
       "lecturer": "",
       "floor": "ground",
       "type": "room",
-      "x": 860,
-      "y": 720,
+      "x": 225,
+      "y": 408,
       "keywords": ["information", "enterence", "help"]
     },
     {
-      "room": "G03",
+      "room": "Lab0",
       "name": "Computer Suite",
       "lecturer": "",
       "floor": "ground",
       "type": "lab",
-      "x": 1530,
-      "y": 355,
+      "x": 380,
+      "y": 350,
       "keywords": ["computers", "it", "lab"]
     },
     {
@@ -36,18 +36,18 @@
       "lecturer": "",
       "floor": "ground",
       "type": "lab",
-      "x": 1530,
-      "y": 355,
+      "x": 576,
+      "y": 406,
       "keywords": ["group space", "it", "lab"]
     },
     {
-      "room": "G04",
+      "room": "Lab1",
       "name": "Computer Suite",
       "lecturer": "",
       "floor": "ground",
       "type": "lab",
-      "x": 1530,
-      "y": 355,
+      "x": 764,
+      "y": 348,
       "keywords": ["computers", "it", "lab"]
     },
     {
@@ -56,18 +56,18 @@
       "lecturer": "",
       "floor": "ground",
       "type": "lab",
-      "x": 1530,
-      "y": 355,
+      "x": 957,
+      "y": 406,
       "keywords": ["office", "it", "lab", "meeting"]
     },
     {
-      "room": "G06",
+      "room": "Lab2",
       "name": "Computer Suite",
       "lecturer": "",
       "floor": "ground",
       "type": "lab",
-      "x": 1530,
-      "y": 355,
+      "x": 1147,
+      "y": 359,
       "keywords": ["computers", "it", "lab"]
     },
     {
@@ -76,8 +76,8 @@
       "lecturer": "",
       "floor": "ground",
       "type": "lab",
-      "x": 1530,
-      "y": 355,
+      "x": 1311,
+      "y": 418,
       "keywords": ["office", "it", "help"]
     },
     {
@@ -86,25 +86,25 @@
       "lecturer": "",
       "floor": "ground",
       "type": "room",
-      "x": 1035,
-      "y": 270,
+      "x": 1373,
+      "y": 557,
       "keywords": ["meeting", "lecture", "seminar"]
     },
     {
       "name": "WC - Shared",
       "lecturer": "",
       "floor": "ground",
-      "type": "lab",
-      "x": 1530,
-      "y": 355,
+      "type": "facility",
+      "x": 757,
+      "y": 727,
       "keywords": ["toilet", "bathroom", "wc"]
     },
     {
-      "room": "G11",
+      "room": "Lab3",
       "floor": "ground",
-      "type": "room",
-      "x": 585,
-      "y": 525,
+      "type": "lab",
+      "x": 1125,
+      "y": 782,
       "keywords": ["computers", "it", "lab"]
     },
     {
@@ -112,8 +112,8 @@
       "name": "Circulation Space",
       "floor": "ground",
       "type": "facility",
-      "x": 805,
-      "y": 445,
+      "x": 615,
+      "y": 661,
       "keywords": ["computers", "it", "group space"]
     },
     {
@@ -122,8 +122,8 @@
       "lecturer": "",
       "floor": "ground",
       "type": "lab",
-      "x": 1530,
-      "y": 355,
+      "x": 768,
+      "y": 874,
       "keywords": ["meeting", "lecture", "seminar"]
     },
     {
@@ -132,64 +132,72 @@
       "lecturer": "",
       "floor": "ground",
       "type": "lab",
-      "x": 1530,
-      "y": 355,
+      "x": 430,
+      "y": 785,
       "keywords": ["computers", "it", "group space"]
     },
     {
       "name": "Lift",
       "floor": "ground",
       "type": "facility",
-      "x": 975,
-      "y": 445,
+      "x": 507,
+      "y": 627,
       "keywords": ["lift", "elevator"]
     },
     {
       "name": "Stairs",
       "floor": "ground",
       "type": "facility",
-      "x": 975,
-      "y": 445,
+      "x": 266,
+      "y": 557,
+      "keywords": ["stairs", "staircase"]
+    },
+    {
+      "name": "Stairs",
+      "floor": "ground",
+      "type": "facility",
+      "x": 1013,
+      "y": 576,
       "keywords": ["stairs", "staircase"]
     },
     {
       "name": "Kitchen",
       "floor": "ground",
       "type": "facility",
-      "x": 975,
-      "y": 445,
+      "x": 548,
+      "y": 559,
       "keywords": ["kitchen", "food", "cooking"]
     },
     {
       "name": "Cleaners Store",
       "floor": "ground",
       "type": "facility",
-      "x": 975,
-      "y": 445,
+      "x": 359,
+      "y": 559,
       "keywords": ["cleaning", "supplies"]
     },
     {
       "name": "WC - Ladies",
       "floor": "ground",
       "type": "facility",
-      "x": 975,
-      "y": 445,
+      "x": 725,
+      "y": 555,
       "keywords": ["toilet", "bathroom", "wc"]
     },
     {
       "name": "WC - Gents",
       "floor": "ground",
       "type": "facility",
-      "x": 975,
-      "y": 445,
+      "x": 873,
+      "y": 557,
       "keywords": ["toilet", "bathroom", "wc"]
     },
     {
       "name": "Accessible WC",
       "floor": "ground",
       "type": "facility",
-      "x": 705,
-      "y": 430,
+      "x": 630,
+      "y": 576,
       "keywords": ["toilet", "bathroom", "accessible", "wc"]
     }
   ]

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin - Room Coordinate Picker</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <script defer src="../js/admin.js"></script>
+</head>
+<body>
+  <main class="page-shell">
+    <header class="page-header">
+      <h1>Room Coordinate Picker</h1>
+      <p>Click on the floor plan to place rooms accurately</p>
+    </header>
+
+    <section class="container admin-container">
+      <div class="admin-layout">
+        <!-- Left column -->
+        <section class="admin-panel">
+          <div class="admin-card">
+            <h2>Room Details</h2>
+            <p class="admin-subtitle">Fill in the room information, then click on the map.</p>
+
+            <div class="admin-form">
+              <div class="form-group">
+                <label for="floorSelect">Floor</label>
+                <select id="floorSelect">
+                  <option value="ground">Ground Floor</option>
+                  <option value="first">First Floor</option>
+                  <option value="second">Second Floor</option>
+                </select>
+              </div>
+
+              <div class="form-grid">
+                <div class="form-group">
+                  <label for="roomInput">Room Number</label>
+                  <input id="roomInput" type="text" placeholder="e.g. G07" />
+                </div>
+
+                <div class="form-group">
+                  <label for="nameInput">Room Name</label>
+                  <input id="nameInput" type="text" placeholder="e.g. Office" />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="lecturerInput">Lecturer</label>
+                <input id="lecturerInput" type="text" placeholder="e.g. Dr John Smith" />
+              </div>
+
+              <div class="form-grid">
+                <div class="form-group">
+                  <label for="typeInput">Type</label>
+                  <input id="typeInput" type="text" placeholder="e.g. office, lab, facility" />
+                </div>
+
+                <div class="form-group">
+                  <label for="keywordsInput">Keywords</label>
+                  <input id="keywordsInput" type="text" placeholder="office, staff, help" />
+                </div>
+              </div>
+
+              <div class="form-grid coords-grid">
+                <div class="form-group">
+                  <label for="xInput">X Coordinate</label>
+                  <input id="xInput" type="number" placeholder="X" readonly />
+                </div>
+
+                <div class="form-group">
+                  <label for="yInput">Y Coordinate</label>
+                  <input id="yInput" type="number" placeholder="Y" readonly />
+                </div>
+              </div>
+
+              <div class="admin-actions">
+                <button id="saveRoomBtn" class="search-button" type="button">Save Room</button>
+                <button id="clearFormBtn" class="admin-secondary-btn" type="button">Clear Form</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="admin-card json-card">
+            <div class="section-heading">
+              <h2>JSON Output</h2>
+              <button id="copyJsonBtn" class="admin-secondary-btn" type="button">Copy JSON</button>
+            </div>
+            <pre id="jsonOutput">{
+  "rooms": []
+}</pre>
+          </div>
+        </section>
+
+        <!-- Right column -->
+        <section class="admin-map-panel">
+          <div class="admin-card map-card">
+            <div class="section-heading">
+              <h2>Live Map</h2>
+              <span class="map-hint">Click a room position to place the marker</span>
+            </div>
+
+            <div class="map-wrapper admin-map-wrapper">
+              <img
+                id="adminMap"
+                class="floor-map active-map"
+                src="../assets/first-floor.png"
+                alt="Floor map"
+                style="display: block;"
+              />
+              <div id="adminMarker" class="marker"></div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <div class="admin-card saved-card">
+        <div class="section-heading">
+          <h2>Saved Rooms</h2>
+          <span id="roomCountBadge" class="room-count-badge">0 rooms</span>
+        </div>
+        <div id="savedRoomsList" class="results"></div>
+      </div>
+
+      <a href="../index.html" class="button back-link">← Back to Home</a>
+    </section>
+  </main>
+</body>
+</html>
