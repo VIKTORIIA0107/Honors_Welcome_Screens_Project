@@ -73,7 +73,7 @@
     {
       "room": "G07",
       "name": "Office",
-      "lecturer": "",
+      "lecturer": "Scott Cleveland",
       "floor": "ground",
       "type": "office",
       "x": 1311,
@@ -205,7 +205,7 @@
     {
       "room": "1.01",
       "name": "Office",
-      "lecturer": "",
+      "lecturer": "Karen Petrie",
       "floor": "first",
       "type": "office",
       "x": 149,
@@ -275,7 +275,7 @@
     {
       "room": "1.08",
       "name": "Office",
-      "lecturer": "",
+      "lecturer": "Graig Ramsay",
       "floor": "first",
       "type": "office",
       "x": 1189,
@@ -305,7 +305,7 @@
     {
       "room": "1.11",
       "name": "Office",
-      "lecturer": "",
+      "lecturer": "Dr Iain Martin",
       "floor": "first",
       "type": "office",
       "x": 1687,
@@ -398,7 +398,7 @@
     {
       "room": "1.20",
       "name": "Office",
-      "lecturer": "",
+      "lecturer": "Andy Cobley",
       "floor": "first",
       "type": "office",
       "x": 589,
@@ -408,7 +408,7 @@
     {
       "room": "1.21",
       "name": "Office",
-      "lecturer": "Dr Chris Reed",
+      "lecturer": "Prof. Chris Reed",
       "floor": "first",
       "type": "office",
       "x": 485,
@@ -418,7 +418,7 @@
     {
       "room": "1.22",
       "name": "Office",
-      "lecturer": "",
+      "lecturer": "Dr Vladimir Janjic",
       "floor": "first",
       "type": "office",
       "x": 474,
