@@ -595,3 +595,32 @@ body {
     align-items: stretch;
   }
 }
+
+html, body {
+  touch-action: manipulation;
+}
+
+button,
+.button,
+.small-btn,
+.search-button,
+.tab,
+input,
+a {
+  touch-action: manipulation;
+}
+
+.search-input,
+.search-button,
+.small-btn,
+.tab,
+.button {
+  min-height: 44px;
+}
+
+.map-wrapper,
+.floor-map {
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+}
