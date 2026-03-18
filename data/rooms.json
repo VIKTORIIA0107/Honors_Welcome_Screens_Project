@@ -145,7 +145,7 @@
       "keywords": ["lift", "elevator"]
     },
     {
-      "name": "Stairs",
+      "name": "Stairs - front",
       "floor": "ground",
       "type": "facility",
       "x": 266,
@@ -153,7 +153,7 @@
       "keywords": ["stairs", "staircase"]
     },
     {
-      "name": "Stairs",
+      "name": "Stairs - back",
       "floor": "ground",
       "type": "facility",
       "x": 1013,
@@ -205,7 +205,7 @@
     {
       "room": "1.01",
       "name": "Office",
-      "lecturer": "Karen Petrie",
+      "lecturer": "Karen Petrie, Fordyce Davidson",
       "floor": "first",
       "type": "office",
       "x": 149,
@@ -215,7 +215,7 @@
     {
       "room": "1.02",
       "name": "Office",
-      "lecturer": "",
+      "lecturer": "Rebecca Leiper",
       "floor": "first",
       "type": "office",
       "x": 177,
@@ -225,7 +225,7 @@
     {
       "room": "1.03",
       "name": "Office",
-      "lecturer": "",
+      "lecturer": "Jason Cobham, Tina Brander, Richard Cook, Elaine Douglas",
       "floor": "first",
       "type": "office",
       "x": 292,
@@ -235,7 +235,7 @@
     {
       "room": "1.04",
       "name": "Office",
-      "lecturer": "",
+      "lecturer": "Emanuele Trucco",
       "floor": "first",
       "type": "office",
       "x": 314,
@@ -245,7 +245,7 @@
     {
       "room": "1.05",
       "name": "Office",
-      "lecturer": "",
+      "lecturer": "Masoud Hayatdavoodi",
       "floor": "first",
       "type": "office",
       "x": 515,
@@ -265,7 +265,7 @@
     {
       "room": "1.07",
       "name": "Office",
-      "lecturer": "",
+      "lecturer": "Oluwafemi Samuel",
       "floor": "first",
       "type": "office",
       "x": 988,
@@ -295,7 +295,7 @@
     {
       "room": "1.10",
       "name": "Office",
-      "lecturer": "",
+      "lecturer": "Hanhe Lin",
       "floor": "first",
       "type": "office",
       "x": 1475,
@@ -398,7 +398,7 @@
     {
       "room": "1.20",
       "name": "Office",
-      "lecturer": "Andy Cobley",
+      "lecturer": "Andrew Cobley",
       "floor": "first",
       "type": "office",
       "x": 589,
@@ -436,19 +436,256 @@
       "keywords": ["office"]
     },
     {
-      "name": "Stairs",
+      "name": "Stairs - front",
       "floor": "first",
       "type": "facility",
       "x": 438,
       "y": 580,
       "keywords": ["stairs", "staircase"]
-    },
-    {
+    },{
+      "name": "Stairs - back",
+      "floor": "first",
+      "type": "facility",
+      "x": 983,
+      "y": 562,
+      "keywords": ["stairs", "staircase"]
+    },{
       "name": "Lift",
       "floor": "first",
       "type": "facility",
       "x": 666,
       "y": 643,
+      "keywords": ["lift", "elevator"]
+    },
+
+
+
+    {
+      "room": "2.01",
+      "name": "Common Room",
+      "lecturer": "",
+      "floor": "second",
+      "type": "room",
+      "x": 180,
+      "y": 489,
+      "keywords": ["group space"]
+    },{
+      "name": "Terrace",
+      "floor": "second",
+      "type": "facility",
+      "x": 80,
+      "y": 504,
+      "keywords": ["balcony", "terrace"]
+    },{
+      "room": "2.02",
+      "name": "Office",
+      "lecturer": "Jacky Viser",
+      "floor": "second",
+      "type": "office",
+      "x": 246,
+      "y": 370,
+      "keywords": ["office"]
+    },{
+      "room": "2.03",
+      "name": "Office",
+      "lecturer": "",
+      "floor": "second",
+      "type": "office",
+      "x": 384,
+      "y": 314,
+      "keywords": ["office"]
+    },{
+      "room": "2.04",
+      "name": "Office",
+      "lecturer": "",
+      "floor": "second",
+      "type": "office",
+      "x": 586,
+      "y": 368,
+      "keywords": ["office"]
+    },{
+      "room": "2.05",
+      "name": "Office",
+      "lecturer": "",
+      "floor": "second",
+      "type": "office",
+      "x": 761,
+      "y": 325,
+      "keywords": ["office"]
+    },{
+      "room": "2.06",
+      "name": "Meeting Room",
+      "lecturer": "Dr Gemma Webster",
+      "floor": "second",
+      "type": "office",
+      "x": 905,
+      "y": 362,
+      "keywords": ["information", "lecturer", "help"]
+    },{
+      "room": "2.07",
+      "name": "Office",
+      "lecturer": "Damiel Rough",
+      "floor": "second",
+      "type": "office",
+      "x": 996,
+      "y": 365,
+      "keywords": ["office"]
+    },{
+      "room": "2.08",
+      "name": "Office",
+      "lecturer": "",
+      "floor": "second",
+      "type": "office",
+      "x": 1132,
+      "y": 314,
+      "keywords": ["office"]
+    },{
+      "room": "2.09",
+      "name": "Office",
+      "lecturer": "Rachel Manzies",
+      "floor": "second",
+      "type": "office",
+      "x": 1298,
+      "y": 373,
+      "keywords": ["office"]
+    },{
+      "room": "2.10",
+      "name": "Office",
+      "lecturer": "",
+      "floor": "second",
+      "type": "office",
+      "x": 1361,
+      "y": 501,
+      "keywords": ["office"]
+    },{
+      "room": "2.10A",
+      "name": "Meeting Room",
+      "lecturer": "",
+      "floor": "second",
+      "type": "office",
+      "x": 1186,
+      "y": 586,
+      "keywords": ["meeting"]
+    },{
+      "room": "2.11",
+      "name": "Office",
+      "lecturer": "",
+      "floor": "second",
+      "type": "office",
+      "x": 1111,
+      "y": 722,
+      "keywords": ["office"]
+    },{
+      "name": "WC - Gents",
+      "floor": "second",
+      "type": "facility",
+      "x": 853,
+      "y": 509,
+      "keywords": ["toilet", "bathroom", "wc"]
+    },{
+      "name": "WC - Ladies",
+      "floor": "second",
+      "type": "facility",
+      "x": 715,
+      "y": 512,
+      "keywords": ["toilet", "bathroom", "wc"]
+    },{
+      "name": "Accessible WC",
+      "floor": "second",
+      "type": "facility",
+      "x": 637,
+      "y": 526,
+      "keywords": ["toilet", "bathroom", "wc"]
+    },{
+      "room": "2.15",
+      "name": "Office",
+      "lecturer": "Debela Gemechu",
+      "floor": "second",
+      "type": "office",
+      "x": 769,
+      "y": 770,
+      "keywords": ["office"]
+    },{
+      "room": "2.17",
+      "name": "Circulation Space",
+      "lecturer": "",
+      "floor": "second",
+      "type": "office",
+      "x": 465,
+      "y": 659,
+      "keywords": ["circulation"]
+    },{
+      "room": "2.18",
+      "name": "Office",
+      "lecturer": "Dr. Ludovic Magerand",
+      "floor": "second",
+      "type": "office",
+      "x": 522,
+      "y": 727,
+      "keywords": ["office"]
+    },{
+      "room": "2.19",
+      "name": "Office",
+      "lecturer": "Prof. Stephen McKenna ",
+      "floor": "second",
+      "type": "office",
+      "x": 479,
+      "y": 795,
+      "keywords": ["office"]
+    },{
+      "room": "2.20",
+      "name": "Office",
+      "lecturer": "Dr. Brian Plüss",
+      "floor": "second",
+      "type": "office",
+      "x": 364,
+      "y": 770,
+      "keywords": ["office"]
+    },{
+      "room": "2.21",
+      "name": "Office",
+      "lecturer": "",
+      "floor": "second",
+      "type": "office",
+      "x": 373,
+      "y": 671,
+      "keywords": ["office"]
+    },{
+      "room": "2.22",
+      "name": "Common Room",
+      "lecturer": "",
+      "floor": "second",
+      "type": "room",
+      "x": 312,
+      "y": 588,
+      "keywords": ["group space"]
+    },{
+      "name": "Stairs - front",
+      "floor": "second",
+      "type": "facility",
+      "x": 287,
+      "y": 532,
+      "keywords": ["stairs", "staircase"]
+    },{
+      "name": "Stairs - middle",
+      "floor": "second",
+      "type": "facility",
+      "x": 517,
+      "y": 506,
+      "keywords": ["stairs", "staircase"]
+    },{
+      "name": "Stairs - back",
+      "floor": "second",
+      "type": "facility",
+      "x": 982,
+      "y": 512,
+      "keywords": ["stairs", "staircase"]
+    },{
+      "name": "Lift",
+      "floor": "second",
+      "type": "facility",
+      "x": 514,
+      "y": 577,
       "keywords": ["lift", "elevator"]
     }
   ]

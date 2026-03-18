@@ -310,6 +310,11 @@ body {
   font-size: 0.98rem;
 }
 
+.facility-emoji {
+  font-size: 2rem;
+  line-height: 1;
+}
+
 /* Accessibility page */
 .accessibility-container {
   width: min(900px, 94vw);

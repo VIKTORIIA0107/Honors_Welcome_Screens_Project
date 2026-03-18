@@ -29,21 +29,23 @@ export function openMap(item) {
 
 export function initialiseMapPage() {
   const marker = document.getElementById("marker");
-  if (!marker) return;
-
   const params = new URLSearchParams(window.location.search);
-  const floor = params.get("floor");
+
+  const floor = params.get("floor") || "ground"; // default floor
   const x = Number(params.get("x"));
   const y = Number(params.get("y"));
   const label = params.get("label");
 
-  if (!floor) return;
-
-  currentMarkerData = { floor, x, y, label: label || "Selected location" };
-
   const selectedRoomText = document.getElementById("selectedRoomText");
   if (selectedRoomText) {
-    selectedRoomText.textContent = currentMarkerData.label;
+    selectedRoomText.textContent = label || "Viewing floor map";
+  }
+
+  // If a room/facility was passed in, keep marker data
+  if (!Number.isNaN(x) && !Number.isNaN(y) && params.get("floor")) {
+    currentMarkerData = { floor, x, y, label: label || "Selected location" };
+  } else {
+    currentMarkerData = null;
   }
 
   activateFloor(floor);
@@ -75,7 +77,12 @@ function updateMarkerPosition() {
   const marker = document.getElementById("marker");
   const mapWrapper = document.querySelector(".map-wrapper");
 
-  if (!marker || !currentMarkerData || !mapWrapper) return;
+  if (!marker || !mapWrapper) return;
+
+  if (!currentMarkerData) {
+    marker.style.display = "none";
+    return;
+  }
 
   let activeMap = null;
   if (currentMarkerData.floor === "ground") activeMap = document.getElementById("groundMap");
