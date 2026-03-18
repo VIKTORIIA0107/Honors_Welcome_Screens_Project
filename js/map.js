@@ -31,9 +31,9 @@ export function initialiseMapPage() {
   const marker = document.getElementById("marker");
   const params = new URLSearchParams(window.location.search);
 
-  const floor = params.get("floor") || "ground"; // default floor
-  const x = Number(params.get("x"));
-  const y = Number(params.get("y"));
+  const floor = params.get("floor") || "ground";
+  const xParam = params.get("x");
+  const yParam = params.get("y");
   const label = params.get("label");
 
   const selectedRoomText = document.getElementById("selectedRoomText");
@@ -41,11 +41,18 @@ export function initialiseMapPage() {
     selectedRoomText.textContent = label || "Viewing floor map";
   }
 
-  // If a room/facility was passed in, keep marker data
-  if (!Number.isNaN(x) && !Number.isNaN(y) && params.get("floor")) {
-    currentMarkerData = { floor, x, y, label: label || "Selected location" };
+  const hasMarker = xParam !== null && yParam !== null;
+
+  if (hasMarker) {
+    currentMarkerData = {
+      floor,
+      x: Number(xParam),
+      y: Number(yParam),
+      label: label || "Selected location"
+    };
   } else {
     currentMarkerData = null;
+    if (marker) marker.style.display = "none";
   }
 
   activateFloor(floor);

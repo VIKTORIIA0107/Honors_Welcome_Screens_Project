@@ -317,7 +317,26 @@ body {
 
 /* Accessibility page */
 .accessibility-container {
-  width: min(900px, 94vw);
+  width: min(980px, 94vw);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.a11y-hero {
+  text-align: left;
+}
+
+.a11y-hero h2,
+.a11y-section-title {
+  margin: 0 0 10px;
+  color: #1c2430;
+}
+
+.a11y-section {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
 }
 
 .a11y-grid {
@@ -326,9 +345,50 @@ body {
   gap: 16px;
 }
 
-.info-card h3 {
-  margin: 0 0 8px;
-  color: #1c2430;
+.a11y-support-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.a11y-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.a11y-icon {
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.a11y-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.a11y-actions .button {
+  margin: 0;
+}
+
+.a11y-note {
+  border-left: 5px solid #1c3e9b;
+}
+
+@media (max-width: 700px) {
+  .a11y-grid,
+  .a11y-support-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .a11y-actions {
+    flex-direction: column;
+  }
+
+  .a11y-actions .button {
+    width: 100%;
+  }
 }
 
 /* Utility */
