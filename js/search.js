@@ -1,4 +1,4 @@
-import { roomsData } from "./data.js";
+import { roomsData, normaliseSearchQuery } from "./data.js";
 import { openMap } from "./map.js";
 import { capitalise, escapeHtml } from "./ui.js";
 
@@ -19,56 +19,42 @@ function performSearch() {
   const resultsContainer = document.getElementById("results");
   const message = document.getElementById("searchMessage");
 
-  if (!searchInput || !resultsContainer) return;
+  if (!searchInput || !resultsContainer || !message) return;
 
-  const query = searchInput.value.trim().toLowerCase();
+  const rawQuery = searchInput.value.trim();
+  const query = normaliseSearchQuery(rawQuery);
+
   resultsContainer.innerHTML = "";
-
-  if (message) message.textContent = "";
+  message.textContent = "";
 
   if (!query) {
-    if (message) {
-      message.textContent = "Enter a room code, room name, lecturer, or facility.";
-    }
+    message.textContent = "Enter a room code, room name, lecturer, or facility.";
     return;
   }
 
   const matches = roomsData.filter((item) => {
-    const roomCode = String(item.room || "").toLowerCase();
-    const name = String(item.name || "").toLowerCase();
-    const type = String(item.type || "").toLowerCase();
-    const keywords = Array.isArray(item.keywords) ? item.keywords.join(" ").toLowerCase() : "";
-    const lecturers = Array.isArray(item.lecturers) ? item.lecturers.join(" ").toLowerCase() : "";
-
-    return (
-      roomCode.includes(query) ||
-      name.includes(query) ||
-      type.includes(query) ||
-      keywords.includes(query) ||
-      lecturers.includes(query)
-    );
+    const haystack = item.searchText || "";
+    return haystack.includes(query);
   });
 
-  renderResults(matches, query);
+  renderResults(matches, rawQuery);
 }
 
-function renderResults(list, query) {
+function renderResults(list, rawQuery) {
   const resultsContainer = document.getElementById("results");
   const message = document.getElementById("searchMessage");
 
-  if (!resultsContainer) return;
+  if (!resultsContainer || !message) return;
 
   resultsContainer.innerHTML = "";
 
-  if (list.length === 0) {
-    if (message) message.textContent = `No results found for "${query}".`;
+  if (!list.length) {
+    message.textContent = `No results found for "${rawQuery}".`;
     resultsContainer.innerHTML = `<div class="empty-state">No matches found.</div>`;
     return;
   }
 
-  if (message) {
-    message.textContent = `${list.length} result${list.length === 1 ? "" : "s"} found.`;
-  }
+  message.textContent = `${list.length} result${list.length === 1 ? "" : "s"} found.`;
 
   list.forEach((item) => {
     const code = item.room || "";
@@ -83,6 +69,7 @@ function renderResults(list, query) {
 
     const card = document.createElement("div");
     card.className = "result-card";
+
     card.innerHTML = `
       <div class="result-info">
         <h3>${escapeHtml(title)}</h3>

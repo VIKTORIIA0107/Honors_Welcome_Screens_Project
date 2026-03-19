@@ -11,10 +11,7 @@ function getFacilityEmoji(name = "") {
   if (value.includes("stairs") || value.includes("staircase")) return "🪜";
   if (value.includes("kitchen")) return "🍽️";
   if (value.includes("cleaners")) return "🧹";
-  if (value.includes("reception")) return "🛎️";
-  if (value.includes("printer")) return "🖨️";
-  if (value.includes("water")) return "💧";
-
+  if (value.includes("terrace")) return "🌿";
   return "📍";
 }
 
@@ -28,7 +25,9 @@ export function setupFacilities() {
   function renderFacilities(floor) {
     container.innerHTML = "";
 
-    const floorFacilities = facilities.filter((item) => item.floor === floor);
+    const floorFacilities = facilities
+      .filter((item) => item.floor === floor)
+      .sort((a, b) => String(a.name || "").localeCompare(String(b.name || "")));
 
     if (!floorFacilities.length) {
       container.innerHTML = `<div class="empty-state">No facilities listed for this floor.</div>`;
@@ -36,12 +35,11 @@ export function setupFacilities() {
     }
 
     floorFacilities.forEach((facility) => {
-      const div = document.createElement("div");
-      div.className = "facility-card";
-
       const label = facility.name || facility.room || "Facility";
       const emoji = getFacilityEmoji(label);
 
+      const div = document.createElement("div");
+      div.className = "facility-card";
       div.innerHTML = `
         <div class="facility-emoji" aria-hidden="true">${emoji}</div>
         <h3>${escapeHtml(label)}</h3>
@@ -55,13 +53,13 @@ export function setupFacilities() {
   }
 
   const activeTab = document.querySelector(".floor-tabs .tab.active");
-  if (activeTab) renderFacilities(activeTab.dataset.floor);
+  renderFacilities(activeTab?.dataset.floor || "ground");
 
   tabs.forEach((tab) => {
     tab.addEventListener("click", () => {
-      tabs.forEach((t) => t.classList.remove("active"));
+      tabs.forEach((item) => item.classList.remove("active"));
       tab.classList.add("active");
-      renderFacilities(tab.dataset.floor);
+      renderFacilities(tab.dataset.floor || "ground");
     });
   });
 }

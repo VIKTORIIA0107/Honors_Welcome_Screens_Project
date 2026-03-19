@@ -273,6 +273,48 @@ body {
   transform:translate(-50%, -50%);
 }
 
+.search-tools {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+.onscreen-keyboard {
+  background: rgba(255, 255, 255, 0.96);
+  border-radius: 18px;
+  padding: 16px;
+  margin-bottom: 18px;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+}
+
+.keyboard-row {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.keyboard-row button {
+  min-width: 56px;
+  min-height: 52px;
+  border: none;
+  border-radius: 12px;
+  background: #eef3ff;
+  color: #1c3e9b;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.keyboard-row button:hover {
+  background: #dce7ff;
+}
+
+.keyboard-row .wide-key {
+  min-width: 160px;
+}
+
 /* Facilities page */
 .facilities-container {
   width: min(1100px, 94vw);
