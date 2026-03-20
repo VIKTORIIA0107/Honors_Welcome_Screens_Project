@@ -1,6 +1,6 @@
 import { roomsData, normaliseSearchQuery } from "./data.js";
 import { openMap } from "./map.js";
-import { capitalise, escapeHtml, bindPress} from "./ui.js";
+import { bindPress, capitalise, escapeHtml } from "./ui.js";
 
 export function setupSearch() {
   const searchBtn = document.getElementById("searchBtn");
@@ -9,8 +9,16 @@ export function setupSearch() {
   if (!searchBtn || !searchInput) return;
 
   bindPress(searchBtn, performSearch);
+
   searchInput.addEventListener("keydown", (event) => {
-    if (event.key === "Enter") performSearch();
+    if (event.key === "Enter") {
+      event.preventDefault();
+      performSearch();
+    }
+  });
+
+  searchInput.addEventListener("pointerdown", () => {
+    searchInput.focus();
   });
 }
 
@@ -69,7 +77,6 @@ function renderResults(list, rawQuery) {
 
     const card = document.createElement("div");
     card.className = "result-card";
-
     card.innerHTML = `
       <div class="result-info">
         <h3>${escapeHtml(title)}</h3>
@@ -78,7 +85,9 @@ function renderResults(list, rawQuery) {
       <button class="small-btn" type="button">Show on Map</button>
     `;
 
-    card.querySelector(".small-btn").addEventListener("click", () => openMap(item));
+    const button = card.querySelector(".small-btn");
+    bindPress(button, () => openMap(item));
+
     resultsContainer.appendChild(card);
   });
 }

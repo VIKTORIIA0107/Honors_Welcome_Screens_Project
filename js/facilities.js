@@ -1,6 +1,6 @@
 import { roomsData } from "./data.js";
 import { openMap } from "./map.js";
-import { capitalise, escapeHtml, bindPress } from "./ui.js";
+import { bindPress, capitalise, escapeHtml } from "./ui.js";
 
 function getFacilityEmoji(name = "") {
   const value = name.toLowerCase();
@@ -47,7 +47,9 @@ export function setupFacilities() {
         <button type="button">Show on Map</button>
       `;
 
-      div.querySelector("button").addEventListener("click", () => openMap(facility));
+      const button = div.querySelector("button");
+      bindPress(button, () => openMap(facility));
+
       container.appendChild(div);
     });
   }
@@ -56,7 +58,7 @@ export function setupFacilities() {
   renderFacilities(activeTab?.dataset.floor || "ground");
 
   tabs.forEach((tab) => {
-    tab.addEventListener("click", () => {
+    bindPress(tab, () => {
       tabs.forEach((item) => item.classList.remove("active"));
       tab.classList.add("active");
       renderFacilities(tab.dataset.floor || "ground");

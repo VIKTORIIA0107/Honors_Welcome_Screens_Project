@@ -9,6 +9,7 @@ body {
   margin: 0;
   padding: 0;
   min-height: 100%;
+  touch-action: manipulation;
 }
 
 body {
@@ -20,7 +21,14 @@ body {
   background-position: center;
 }
 
-/* Page layout */
+body.touch-active * {
+  cursor: default !important;
+}
+
+/* =========================
+   PAGE LAYOUT
+   ========================= */
+
 .page-shell {
   min-height: 100vh;
   padding: 40px 20px;
@@ -53,7 +61,6 @@ body {
   text-shadow: 0 6px 18px rgba(0, 0, 0, 0.14);
 }
 
-/* Main container */
 .container {
   width: min(1100px, 94vw);
   background: rgba(255, 255, 255, 0.16);
@@ -70,7 +77,55 @@ body {
   text-align: center;
 }
 
-/* Buttons */
+/* =========================
+   BUTTONS / INTERACTIVE
+   ========================= */
+
+button,
+.button,
+.small-btn,
+.search-button,
+.tab,
+input,
+a,
+select,
+textarea {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.button,
+.search-button,
+.small-btn,
+.tab,
+.facility-card button,
+.keyboard-row button,
+input,
+select,
+textarea {
+  min-height: 56px;
+  font-size: 18px;
+}
+
+.button,
+.search-button,
+.small-btn,
+.tab,
+.facility-card button,
+.keyboard-row button {
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.button,
+.search-button,
+.small-btn,
+.tab,
+.facility-card button,
+.admin-secondary-btn {
+  cursor: pointer;
+}
+
 .button {
   display: block;
   width: 100%;
@@ -95,7 +150,44 @@ body {
   margin-top: 24px;
 }
 
-/* Search page */
+.search-button {
+  padding: 14px 22px;
+  border: none;
+  border-radius: 12px;
+  background: #1c3e9b;
+  color: white;
+  font-weight: 600;
+  transition: 0.2s ease;
+}
+
+.search-button:hover {
+  background: #16327f;
+}
+
+.small-btn,
+.facility-card button {
+  border: none;
+  border-radius: 10px;
+  background: rgb(32, 197, 4);
+  color: white;
+  font-weight: 600;
+  padding: 10px 16px;
+  transition: 0.2s ease;
+}
+
+.small-btn:hover,
+.facility-card button:hover {
+  background: rgb(25, 170, 3);
+}
+
+.pressed {
+  transform: scale(0.98);
+}
+
+/* =========================
+   SEARCH PAGE
+   ========================= */
+
 .search-container {
   max-width: 900px;
 }
@@ -109,7 +201,6 @@ body {
 .search-input {
   flex: 1;
   padding: 14px 16px;
-  font-size: 16px;
   border: 2px solid #d8dde6;
   border-radius: 12px;
   outline: none;
@@ -122,28 +213,19 @@ body {
   box-shadow: 0 0 0 4px rgba(28, 62, 155, 0.14);
 }
 
-.search-button {
-  padding: 14px 22px;
-  border: none;
-  border-radius: 12px;
-  background: #1c3e9b;
-  color: white;
-  font-weight: 600;
-  cursor: pointer;
-  transition: 0.2s ease;
-}
-
-.search-button:hover {
-  background: #16327f;
-}
-
 .search-message {
   min-height: 24px;
   margin: 0 0 14px;
   color: white;
 }
 
-/* Result cards */
+.search-tools {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
 .results {
   display: flex;
   flex-direction: column;
@@ -159,6 +241,7 @@ body {
   border-radius: 16px;
   padding: 20px;
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+  touch-action: manipulation;
 }
 
 .result-card {
@@ -180,25 +263,54 @@ body {
   color: #4d5a6a;
 }
 
-/* Small green buttons */
-.small-btn,
-.facility-card button {
+/* =========================
+   ON-SCREEN KEYBOARD
+   ========================= */
+
+.onscreen-keyboard {
+  background: rgba(255, 255, 255, 0.96);
+  border-radius: 18px;
+  padding: 16px;
+  margin-bottom: 18px;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+}
+
+.keyboard-row {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.keyboard-row:last-child {
+  margin-bottom: 0;
+}
+
+.keyboard-row button {
+  min-width: 56px;
+  min-height: 52px;
   border: none;
-  border-radius: 10px;
-  background: rgb(32, 197, 4);
-  color: white;
-  font-weight: 600;
-  padding: 10px 16px;
+  border-radius: 12px;
+  background: #eef3ff;
+  color: #1c3e9b;
+  font-weight: 700;
   cursor: pointer;
-  transition: 0.2s ease;
+  transition: background 0.2s ease, transform 0.2s ease;
 }
 
-.small-btn:hover,
-.facility-card button:hover {
-  background: rgb(25, 170, 3);
+.keyboard-row button:hover {
+  background: #dce7ff;
 }
 
-/* Map page */
+.keyboard-row .wide-key {
+  min-width: 160px;
+}
+
+/* =========================
+   MAP PAGE
+   ========================= */
+
 .map-container {
   width: min(1280px, 96vw);
 }
@@ -217,7 +329,6 @@ body {
   border-radius: 999px;
   padding: 10px 18px;
   font-weight: 600;
-  cursor: pointer;
   background: rgba(255, 255, 255, 0.28);
   color: white;
   transition: 0.2s ease;
@@ -235,6 +346,11 @@ body {
   align-items: center;
   overflow: auto;
   min-height: 420px;
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-x pan-y;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
 }
 
 .floor-map {
@@ -244,6 +360,10 @@ body {
   border-radius: 18px;
   background: transparent;
   padding: 8px;
+  pointer-events: auto;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
 }
 
 .active-map {
@@ -262,60 +382,23 @@ body {
   display: none;
   z-index: 20;
   box-shadow: 0 0 0 8px rgba(255, 59, 48, 0.22);
+  pointer-events: none;
 }
 
-.room-marker{
-  position:absolute;
-  width:18px;
-  height:18px;
-  background:red;
-  border-radius:50%;
-  transform:translate(-50%, -50%);
+.room-marker {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  background: red;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
 }
 
-.search-tools {
-  display: flex;
-  gap: 12px;
-  margin-bottom: 16px;
-  flex-wrap: wrap;
-}
+/* =========================
+   FACILITIES PAGE
+   ========================= */
 
-.onscreen-keyboard {
-  background: rgba(255, 255, 255, 0.96);
-  border-radius: 18px;
-  padding: 16px;
-  margin-bottom: 18px;
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
-}
-
-.keyboard-row {
-  display: flex;
-  gap: 8px;
-  margin-bottom: 8px;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.keyboard-row button {
-  min-width: 56px;
-  min-height: 52px;
-  border: none;
-  border-radius: 12px;
-  background: #eef3ff;
-  color: #1c3e9b;
-  font-weight: 700;
-  cursor: pointer;
-}
-
-.keyboard-row button:hover {
-  background: #dce7ff;
-}
-
-.keyboard-row .wide-key {
-  min-width: 160px;
-}
-
-/* Facilities page */
 .facilities-container {
   width: min(1100px, 94vw);
 }
@@ -357,7 +440,10 @@ body {
   line-height: 1;
 }
 
-/* Accessibility page */
+/* =========================
+   ACCESSIBILITY PAGE
+   ========================= */
+
 .accessibility-container {
   width: min(980px, 94vw);
   display: flex;
@@ -418,59 +504,11 @@ body {
   border-left: 5px solid #1c3e9b;
 }
 
-@media (max-width: 700px) {
-  .a11y-grid,
-  .a11y-support-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .a11y-actions {
-    flex-direction: column;
-  }
-
-  .a11y-actions .button {
-    width: 100%;
-  }
+.info-card h3 {
+  margin: 0 0 8px;
+  color: #1c2430;
 }
 
-/* Utility */
-.hidden {
-  display: none !important;
-}
-
-/* Responsive */
-@media (max-width: 700px) {
-  .page-shell {
-    padding: 24px 14px;
-  }
-
-  .container {
-    padding: 20px;
-  }
-
-  .search-box {
-    flex-direction: column;
-  }
-
-  .result-card {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .small-btn,
-  .search-button,
-  .facility-card button {
-    width: 100%;
-  }
-
-  .a11y-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .facility-grid {
-    grid-template-columns: 1fr;
-  }
-}
 /* =========================
    ADMIN PAGE
    ========================= */
@@ -585,7 +623,6 @@ body {
   color: #1c3e9b;
   font-weight: 600;
   padding: 12px 16px;
-  cursor: pointer;
   transition: 0.2s ease;
 }
 
@@ -673,6 +710,18 @@ body {
   max-height: 340px;
 }
 
+/* =========================
+   UTILITY
+   ========================= */
+
+.hidden {
+  display: none !important;
+}
+
+/* =========================
+   RESPONSIVE
+   ========================= */
+
 @media (max-width: 1100px) {
   .admin-layout {
     grid-template-columns: 1fr;
@@ -684,88 +733,61 @@ body {
 }
 
 @media (max-width: 700px) {
+  .page-shell {
+    padding: 24px 14px;
+  }
+
+  .container {
+    padding: 20px;
+  }
+
+  .search-box {
+    flex-direction: column;
+  }
+
+  .result-card {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .small-btn,
+  .search-button,
+  .facility-card button,
+  .a11y-actions .button {
+    width: 100%;
+  }
+
+  .a11y-grid,
+  .a11y-support-grid,
+  .facility-grid,
   .form-grid {
     grid-template-columns: 1fr;
   }
 
+  .a11y-actions,
   .admin-actions {
     flex-direction: column;
-  }
-
-  .admin-actions button,
-  .section-heading button {
-    width: 100%;
   }
 
   .section-heading {
     flex-direction: column;
     align-items: stretch;
   }
+
+  .admin-actions button,
+  .section-heading button {
+    width: 100%;
+  }
 }
 
-html, body {
-  touch-action: manipulation;
-}
-
-button,
-.button,
-.small-btn,
-.search-button,
-.tab,
-input,
-a {
-  touch-action: manipulation;
-}
-
-.search-input,
-.search-button,
-.small-btn,
-.tab,
-.button {
-  min-height: 44px;
-}
-
-.map-wrapper,
-.floor-map {
-  user-select: none;
-  -webkit-user-select: none;
-  -webkit-touch-callout: none;
-}
-html, body {
-  touch-action: manipulation;
-}
-
-button,
-.button,
-.small-btn,
-.search-button,
-.tab,
-input,
-a {
-  touch-action: manipulation;
-  -webkit-tap-highlight-color: transparent;
-}
-
-button,
-.button,
-.small-btn,
-.search-button,
-.tab {
-  min-height: 56px;
-}
-
-.search-input {
-  min-height: 56px;
-  font-size: 18px;
-}
-
-.result-card,
-.facility-card,
-.info-card {
-  touch-action: manipulation;
-}
-
-#marker,
-.marker {
-  pointer-events: none;
+@media (hover: none) {
+  .button:hover,
+  .search-button:hover,
+  .small-btn:hover,
+  .facility-card:hover,
+  .facility-card button:hover,
+  .admin-secondary-btn:hover {
+    transform: none;
+    box-shadow: none;
+  }
 }

@@ -2,7 +2,7 @@ import { loadData } from "./data.js";
 import { setupSearch } from "./search.js";
 import { setupFloorTabs, initialiseMapPage } from "./map.js";
 import { setupFacilities } from "./facilities.js";
-import { setupBackButton, setupKeyboardToggle } from "./ui.js";
+import { setupBackButton, setupKeyboardToggle, setupPressedState } from "./ui.js";
 
 document.addEventListener("DOMContentLoaded", async () => {
   await loadData();
@@ -13,4 +13,9 @@ document.addEventListener("DOMContentLoaded", async () => {
   initialiseMapPage();
   setupBackButton();
   setupKeyboardToggle();
+  setupPressedState();
+
+  document.addEventListener("pointerdown", () => {
+    document.body.classList.add("touch-active");
+  }, { once: true });
 });

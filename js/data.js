@@ -25,7 +25,7 @@ export async function loadData() {
     ]);
 
     if (!roomsResponse.ok || !lecturersResponse.ok) {
-      throw new Error("Could not load data files.");
+      throw new Error("Could not load project data.");
     }
 
     const roomsJson = await roomsResponse.json();
@@ -36,7 +36,7 @@ export async function loadData() {
 
     attachLecturersToRooms();
   } catch (error) {
-    console.error("Data loading failed:", error);
+    console.error("Failed to load data:", error);
     roomsData = [];
     lecturersData = [];
   }
@@ -44,8 +44,10 @@ export async function loadData() {
 
 function attachLecturersToRooms() {
   roomsData = roomsData.map((room) => {
-    const exactRoomLecturers = lecturersData
-      .filter((lecturer) => String(lecturer.room || "").trim() === String(room.room || "").trim())
+    const roomCode = String(room.room || "").trim();
+
+    const lecturerMatches = lecturersData
+      .filter((lecturer) => String(lecturer.room || "").trim() === roomCode)
       .map((lecturer) => lecturer.name);
 
     const inlineLecturers = String(room.lecturer || "")
@@ -53,39 +55,24 @@ function attachLecturersToRooms() {
       .map((name) => name.trim())
       .filter(Boolean);
 
-    const mergedLecturers = [...new Set([...exactRoomLecturers, ...inlineLecturers])];
+    const lecturers = [...new Set([...lecturerMatches, ...inlineLecturers])];
 
     const searchText = [
       room.room,
       room.name,
-      room.type,
       room.floor,
+      room.type,
       ...(Array.isArray(room.keywords) ? room.keywords : []),
-      ...mergedLecturers
+      ...lecturers
     ]
       .filter(Boolean)
       .join(" ");
 
     return {
       ...room,
-      lecturers: mergedLecturers,
+      lecturers,
       searchText: normaliseText(searchText)
     };
-  });
-}
-
-export function getAccessibleFacilities() {
-  return roomsData.filter((item) => {
-    if (item.type !== "facility") return false;
-    const name = String(item.name || "").toLowerCase();
-    const keywords = Array.isArray(item.keywords) ? item.keywords.join(" ").toLowerCase() : "";
-    return (
-      name.includes("accessible") ||
-      name.includes("lift") ||
-      keywords.includes("accessible") ||
-      keywords.includes("lift") ||
-      keywords.includes("elevator")
-    );
   });
 }
 

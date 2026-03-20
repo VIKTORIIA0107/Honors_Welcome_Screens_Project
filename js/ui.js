@@ -12,6 +12,26 @@ export function escapeHtml(value) {
     .replaceAll("'", "&#039;");
 }
 
+export function bindPress(element, handler) {
+  if (!element) return;
+
+  let triggered = false;
+
+  element.addEventListener("pointerdown", (event) => {
+    triggered = true;
+    event.preventDefault();
+    handler(event);
+  });
+
+  element.addEventListener("click", (event) => {
+    if (triggered) {
+      triggered = false;
+      return;
+    }
+    handler(event);
+  });
+}
+
 export function setupBackButton() {
   const backButton = document.getElementById("backButton");
   if (!backButton) return;
@@ -22,20 +42,17 @@ export function setupBackButton() {
   if (from === "facilities") {
     backButton.href = "facilities.html";
     backButton.textContent = "← Back to Facilities";
-  } else if (from === "search") {
+    return;
+  }
+
+  if (from === "search") {
     backButton.href = "search.html";
     backButton.textContent = "← Back to Search";
-  } else if (window.history.length > 1) {
-    backButton.href = "#";
-    backButton.textContent = "← Back";
-    backButton.addEventListener("click", (event) => {
-      event.preventDefault();
-      window.history.back();
-    });
-  } else {
-    backButton.href = "../index.html";
-    backButton.textContent = "← Back to Home";
+    return;
   }
+
+  backButton.href = "../index.html";
+  backButton.textContent = "← Back to Home";
 }
 
 export function setupKeyboardToggle() {
@@ -46,26 +63,27 @@ export function setupKeyboardToggle() {
 
   if (!input || !keyboard || !toggleBtn) return;
 
-  toggleBtn.addEventListener("click", () => {
+  bindPress(toggleBtn, () => {
     keyboard.classList.toggle("hidden");
     input.focus();
   });
 
-  clearBtn?.addEventListener("click", () => {
-    input.value = "";
-    input.focus();
-  });
+  if (clearBtn) {
+    bindPress(clearBtn, () => {
+      input.value = "";
+      input.dispatchEvent(new Event("input", { bubbles: true }));
+      input.focus();
+    });
+  }
 
   keyboard.querySelectorAll("[data-key]").forEach((button) => {
-    button.addEventListener("click", () => {
+    bindPress(button, () => {
       const key = button.dataset.key;
 
       if (key === "BACKSPACE") {
         input.value = input.value.slice(0, -1);
       } else if (key === "SPACE") {
         input.value += " ";
-      } else if (key === "CLEAR") {
-        input.value = "";
       } else {
         input.value += key;
       }
@@ -74,14 +92,28 @@ export function setupKeyboardToggle() {
       input.focus();
     });
   });
+
+  input.addEventListener("pointerdown", () => {
+    input.focus();
+  });
 }
-export function bindPress(element, handler) {
-  if (!element) return;
 
-  element.addEventListener("click", handler);
+export function setupPressedState() {
+  document.querySelectorAll("a.button, .tab, .small-btn, .search-button, .facility-card button").forEach((element) => {
+    element.addEventListener("pointerdown", () => {
+      element.classList.add("pressed");
+    });
 
-  element.addEventListener("pointerdown", (event) => {
-    event.preventDefault();
-    handler(event);
+    element.addEventListener("pointerup", () => {
+      element.classList.remove("pressed");
+    });
+
+    element.addEventListener("pointerleave", () => {
+      element.classList.remove("pressed");
+    });
+
+    element.addEventListener("pointercancel", () => {
+      element.classList.remove("pressed");
+    });
   });
 }
