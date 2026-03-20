@@ -75,3 +75,13 @@ export function setupKeyboardToggle() {
     });
   });
 }
+export function bindPress(element, handler) {
+  if (!element) return;
+
+  element.addEventListener("click", handler);
+
+  element.addEventListener("pointerdown", (event) => {
+    event.preventDefault();
+    handler(event);
+  });
+}

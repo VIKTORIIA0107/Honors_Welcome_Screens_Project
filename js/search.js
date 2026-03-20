@@ -1,6 +1,6 @@
 import { roomsData, normaliseSearchQuery } from "./data.js";
 import { openMap } from "./map.js";
-import { capitalise, escapeHtml } from "./ui.js";
+import { capitalise, escapeHtml, bindPress} from "./ui.js";
 
 export function setupSearch() {
   const searchBtn = document.getElementById("searchBtn");
@@ -8,7 +8,7 @@ export function setupSearch() {
 
   if (!searchBtn || !searchInput) return;
 
-  searchBtn.addEventListener("click", performSearch);
+  bindPress(searchBtn, performSearch);
   searchInput.addEventListener("keydown", (event) => {
     if (event.key === "Enter") performSearch();
   });

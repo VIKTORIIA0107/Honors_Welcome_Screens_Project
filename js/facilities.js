@@ -1,6 +1,6 @@
 import { roomsData } from "./data.js";
 import { openMap } from "./map.js";
-import { capitalise, escapeHtml } from "./ui.js";
+import { capitalise, escapeHtml, bindPress } from "./ui.js";
 
 function getFacilityEmoji(name = "") {
   const value = name.toLowerCase();

@@ -731,3 +731,41 @@ a {
   -webkit-user-select: none;
   -webkit-touch-callout: none;
 }
+html, body {
+  touch-action: manipulation;
+}
+
+button,
+.button,
+.small-btn,
+.search-button,
+.tab,
+input,
+a {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+button,
+.button,
+.small-btn,
+.search-button,
+.tab {
+  min-height: 56px;
+}
+
+.search-input {
+  min-height: 56px;
+  font-size: 18px;
+}
+
+.result-card,
+.facility-card,
+.info-card {
+  touch-action: manipulation;
+}
+
+#marker,
+.marker {
+  pointer-events: none;
+}
