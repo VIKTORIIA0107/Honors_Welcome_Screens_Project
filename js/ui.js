@@ -15,19 +15,8 @@ export function escapeHtml(value) {
 export function bindPress(element, handler) {
   if (!element) return;
 
-  let triggered = false;
-
   element.addEventListener("pointerdown", (event) => {
-    triggered = true;
     event.preventDefault();
-    handler(event);
-  });
-
-  element.addEventListener("click", (event) => {
-    if (triggered) {
-      triggered = false;
-      return;
-    }
     handler(event);
   });
 }
@@ -63,6 +52,8 @@ export function setupKeyboardToggle() {
 
   if (!input || !keyboard || !toggleBtn) return;
 
+  let isShift = false;
+
   bindPress(toggleBtn, () => {
     keyboard.classList.toggle("hidden");
     input.focus();
@@ -78,14 +69,23 @@ export function setupKeyboardToggle() {
 
   keyboard.querySelectorAll("[data-key]").forEach((button) => {
     bindPress(button, () => {
-      const key = button.dataset.key;
+      let key = button.dataset.key;
 
       if (key === "BACKSPACE") {
         input.value = input.value.slice(0, -1);
-      } else if (key === "SPACE") {
+      } 
+      else if (key === "SPACE") {
         input.value += " ";
-      } else {
+      } 
+      else if (key === "SHIFT") {
+        isShift = !isShift;
+        return;
+      } 
+      else {
+        key = isShift ? key.toUpperCase() : key.toLowerCase();
         input.value += key;
+
+        if (isShift) isShift = false; // auto turn off shift
       }
 
       input.dispatchEvent(new Event("input", { bubbles: true }));
