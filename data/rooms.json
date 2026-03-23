@@ -73,7 +73,7 @@
     {
       "room": "G07",
       "name": "Office",
-      "lecturer": "Scott Cleveland",
+      "lecturer": "Scott Cleveland (Staff)",
       "floor": "ground",
       "type": "office",
       "x": 1311,
@@ -118,7 +118,7 @@
     },
     {
       "room": "G16 Lecture Theatre",
-      "name": "Wolfston Theatre",
+      "name": "Wolfston Research Theatre",
       "lecturer": "",
       "floor": "ground",
       "type": "room",
@@ -205,7 +205,7 @@
     {
       "room": "1.01",
       "name": "Office",
-      "lecturer": "Karen Petrie, Fordyce Davidson",
+      "lecturer": "Karen Petrie (Staff); Fordyce Davidson (Staff)",
       "floor": "first",
       "type": "office",
       "x": 149,
@@ -215,7 +215,7 @@
     {
       "room": "1.02",
       "name": "Office",
-      "lecturer": "Rebecca Leiper",
+      "lecturer": "Grainne Barr (Staff); Susan Kinnear (Staff)",
       "floor": "first",
       "type": "office",
       "x": 177,
@@ -225,7 +225,7 @@
     {
       "room": "1.03",
       "name": "Office",
-      "lecturer": "Jason Cobham, Tina Brander, Richard Cook, Elaine Douglas",
+      "lecturer": "Jason Cobham (Staff);Tina Brander (Staff);Sara Salvaterra (Staff)",
       "floor": "first",
       "type": "office",
       "x": 292,
@@ -235,7 +235,7 @@
     {
       "room": "1.04",
       "name": "Office",
-      "lecturer": "Emanuele Trucco",
+      "lecturer": "Emanuele Trucco (Staff);Alison Pease (Staff)",
       "floor": "first",
       "type": "office",
       "x": 314,
@@ -245,7 +245,7 @@
     {
       "room": "1.05",
       "name": "Office",
-      "lecturer": "Masoud Hayatdavoodi",
+      "lecturer": " Stewart McGill (Staff);Karen Wilson (Staff);Lynn McIlravey (Staff);Gary Hunter (Staff);Sarah O'Connor (Staff);Joanna Fraser (Staff)",
       "floor": "first",
       "type": "office",
       "x": 515,
@@ -265,7 +265,7 @@
     {
       "room": "1.07",
       "name": "Office",
-      "lecturer": "Oluwafemi Samuel",
+      "lecturer": "Rachel Blair (Staff);Richard Cook (Staff);Chantelle Attrill (Staff);Katie Robinson (Staff);Andrea West (Staff);Sasha Paton (Staff);Sara Ullah (Staff)",
       "floor": "first",
       "type": "office",
       "x": 988,
@@ -275,7 +275,7 @@
     {
       "room": "1.08",
       "name": "Office",
-      "lecturer": "Craig Ramsay",
+      "lecturer": "Craig Ramsay (Staff)",
       "floor": "first",
       "type": "office",
       "x": 1189,
@@ -285,7 +285,7 @@
     {
       "room": "1.09",
       "name": "Office",
-      "lecturer": "Dr Alison Paese",
+      "lecturer": "Hanhe Lin (Staff)",
       "floor": "first",
       "type": "office",
       "x": 1280,
@@ -295,7 +295,7 @@
     {
       "room": "1.10",
       "name": "Office",
-      "lecturer": "Hanhe Lin",
+      "lecturer": "Tina Robertson (Staff);Christine Sinclair (Staff);Darren Anderson (Staff);Roxana Tudoran (Staff);Jenna Gaden (Staff)",
       "floor": "first",
       "type": "office",
       "x": 1475,
@@ -305,7 +305,7 @@
     {
       "room": "1.11",
       "name": "Office",
-      "lecturer": "Dr Iain Martin",
+      "lecturer": "Iain Martin (Staff)",
       "floor": "first",
       "type": "office",
       "x": 1687,
@@ -388,7 +388,7 @@
     {
       "room": "1.19",
       "name": "Office",
-      "lecturer": "Dr John Lawrence",
+      "lecturer": "John Lawrence (Staff)",
       "floor": "first",
       "type": "office",
       "x": 661,
@@ -398,7 +398,7 @@
     {
       "room": "1.20",
       "name": "Office",
-      "lecturer": "Andrew Cobley",
+      "lecturer": "Oluwafemi Samuel (Staff)",
       "floor": "first",
       "type": "office",
       "x": 589,
@@ -408,7 +408,7 @@
     {
       "room": "1.21",
       "name": "Office",
-      "lecturer": "Prof. Chris Reed",
+      "lecturer": "Chris Reed (Staff)",
       "floor": "first",
       "type": "office",
       "x": 485,
@@ -418,7 +418,7 @@
     {
       "room": "1.22",
       "name": "Office",
-      "lecturer": "Dr Vladimir Janjic",
+      "lecturer": "Vladimir Janjic (Staff)",
       "floor": "first",
       "type": "office",
       "x": 474,
@@ -428,7 +428,7 @@
     {
       "room": "1.23",
       "name": "Circulation Space",
-      "lecturer": "",
+      "lecturer": "Derek Brankin (Staff);Nicholas Dawes (Staff)",
       "floor": "first",
       "type": "office",
       "x": 433,
@@ -479,7 +479,7 @@
     },{
       "room": "2.02",
       "name": "Office",
-      "lecturer": "Jacky Viser",
+      "lecturer": "Jacky Viser (Staff)",
       "floor": "second",
       "type": "office",
       "x": 246,
@@ -488,7 +488,7 @@
     },{
       "room": "2.03",
       "name": "Office",
-      "lecturer": "",
+      "lecturer": "Yazhmozhi V M Vasuki Murugesan (PG Research);Ladan Safiee (PG Research);Nawaf Alajlani (PG Research);Anthony Sweeney (PG Research);Anderson You (PG Research);Michael Leonard (PG Research);Jian Liu (PG Research)",
       "floor": "second",
       "type": "office",
       "x": 384,
@@ -506,7 +506,7 @@
     },{
       "room": "2.05",
       "name": "Office",
-      "lecturer": "",
+      "lecturer": "Kamila Gorska (PG Research);Godfrey Inyama (PG Research);Somaye Moslemnejad (PG Research);Nicole Orr (PG Research);Ella Schad (PG Research);Ray Becker (Staff);Ramon Ruiz-Dolz (Staff);Eimear Maguire (Staff);Henrike Beyer (PG Research);Cameron Bryce (Staff);Zvony Delas (Student);Clara Seyfried (PG Research);Ayah Soufan (Staff);Yevhen Kostiuk (Staff)",
       "floor": "second",
       "type": "office",
       "x": 761,
@@ -515,7 +515,7 @@
     },{
       "room": "2.06",
       "name": "Meeting Room",
-      "lecturer": "Dr Gemma Webster",
+      "lecturer": "Gemma Webster (Staff)",
       "floor": "second",
       "type": "office",
       "x": 905,
@@ -524,7 +524,7 @@
     },{
       "room": "2.07",
       "name": "Office",
-      "lecturer": "Damiel Rough",
+      "lecturer": "Damiel Rough (Staff)",
       "floor": "second",
       "type": "office",
       "x": 996,
@@ -533,7 +533,7 @@
     },{
       "room": "2.08",
       "name": "Office",
-      "lecturer": "",
+      "lecturer": "Matteo Ciantia (Staff);Thomas Riccio (PG Research);Raheem Beg (PG Research);Saranraj Gururaj (PG Research);Libero Sandrini (PG Research);Jinhui Zheng (PG Research);Filip Jovanovic (PG Research);Alessio Genco (PG Research);Marco Previtali (Staff);Hussam Namanqani (PG Research);Nicholas Dawes (Staff)",
       "floor": "second",
       "type": "office",
       "x": 1132,
@@ -542,7 +542,7 @@
     },{
       "room": "2.09",
       "name": "Office",
-      "lecturer": "Rachel Manzies",
+      "lecturer": "Rachel Manzies (Staff)",
       "floor": "second",
       "type": "office",
       "x": 1298,
@@ -551,7 +551,7 @@
     },{
       "room": "2.10",
       "name": "Office",
-      "lecturer": "",
+      "lecturer": "Kate Ward (Staff);Scott Robinson (Staff);Judith Halliday (Staff);Ross Croall (Staff);Deepak Shamvedi (Staff)",
       "floor": "second",
       "type": "office",
       "x": 1361,
@@ -569,7 +569,7 @@
     },{
       "room": "2.11",
       "name": "Office",
-      "lecturer": "",
+      "lecturer": "Wayne Paul (Staff);Amy Mavroudis (Staff);Kevin Murphy-Steele (Staff);Laud Ochei (Staff);Noor Sabaruddin (Staff)",
       "floor": "second",
       "type": "office",
       "x": 1111,
@@ -599,7 +599,7 @@
     },{
       "room": "2.15",
       "name": "Office",
-      "lecturer": "Debela Gemechu",
+      "lecturer": "Elaine McIntyre (Staff);Debela Gemechu (PG Research)",
       "floor": "second",
       "type": "office",
       "x": 769,
@@ -617,7 +617,7 @@
     },{
       "room": "2.18",
       "name": "Office",
-      "lecturer": "Dr. Ludovic Magerand",
+      "lecturer": "Ludovic Magerand (Staff)",
       "floor": "second",
       "type": "office",
       "x": 522,
@@ -626,7 +626,7 @@
     },{
       "room": "2.19",
       "name": "Office",
-      "lecturer": "Prof. Stephen McKenna ",
+      "lecturer": "Stephen McKenna (Staff)",
       "floor": "second",
       "type": "office",
       "x": 479,
@@ -635,7 +635,7 @@
     },{
       "room": "2.20",
       "name": "Office",
-      "lecturer": "Dr. Brian Plüss",
+      "lecturer": "Brian Plüss (Staff)",
       "floor": "second",
       "type": "office",
       "x": 364,
@@ -644,7 +644,7 @@
     },{
       "room": "2.21",
       "name": "Office",
-      "lecturer": "",
+      "lecturer": "Iain Martin (Staff)",
       "floor": "second",
       "type": "office",
       "x": 373,
