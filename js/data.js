@@ -46,9 +46,12 @@ function attachLecturersToRooms() {
   roomsData = roomsData.map((room) => {
     const roomCode = String(room.room || "").trim();
 
-    const lecturerMatches = lecturersData
-      .filter((lecturer) => String(lecturer.room || "").trim() === roomCode)
-      .map((lecturer) => lecturer.name);
+    const lecturerMatches = 
+    roomCode && room.type !== "facility"
+    ? lecturersData
+        .filter((lecturer) => String(lecturer.room || "").trim() === roomCode)
+        .map((lecturer) => lecturer.name)
+    : [];
 
     const inlineLecturers = String(room.lecturer || "")
       .split(",")

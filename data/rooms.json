@@ -79,8 +79,7 @@
       "x": 1311,
       "y": 418,
       "keywords": ["office", "it", "help"]
-    },
-    {
+    },{
       "room": "G08",
       "name": "Seminar Room",
       "lecturer": "",
@@ -89,6 +88,15 @@
       "x": 1373,
       "y": 557,
       "keywords": ["meeting", "lecture", "seminar"]
+    },{
+      "room": "G09",
+      "name": "Circulation Space",
+      "lecturer": "",
+      "floor": "ground",
+      "type": "space",
+      "x": 1311,
+      "y": 418,
+      "keywords": ["circulation"]
     },
     {
       "name": "WC - Shared",
@@ -208,8 +216,8 @@
       "lecturer": "Karen Petrie (Staff); Fordyce Davidson (Staff)",
       "floor": "first",
       "type": "office",
-      "x": 149,
-      "y": 597,
+      "x": 81,
+      "y": 600,
       "keywords": ["office"]
     },
     {
@@ -218,8 +226,8 @@
       "lecturer": "Grainne Barr (Staff); Susan Kinnear (Staff)",
       "floor": "first",
       "type": "office",
-      "x": 177,
-      "y": 481,
+      "x": 96,
+      "y": 494,
       "keywords": ["office"]
     },
     {
@@ -228,8 +236,8 @@
       "lecturer": "Jason Cobham (Staff);Tina Brander (Staff);Sara Salvaterra (Staff)",
       "floor": "first",
       "type": "office",
-      "x": 292,
-      "y": 575,
+      "x": 174,
+      "y": 571,
       "keywords": ["office"]
     },
     {
@@ -238,8 +246,8 @@
       "lecturer": "Emanuele Trucco (Staff);Alison Pease (Staff)",
       "floor": "first",
       "type": "office",
-      "x": 314,
-      "y": 367,
+      "x": 230,
+      "y": 411,
       "keywords": ["office"]
     },
     {
@@ -248,8 +256,8 @@
       "lecturer": " Stewart McGill (Staff);Karen Wilson (Staff);Lynn McIlravey (Staff);Gary Hunter (Staff);Sarah O'Connor (Staff);Joanna Fraser (Staff)",
       "floor": "first",
       "type": "office",
-      "x": 515,
-      "y": 282,
+      "x": 378,
+      "y": 360,
       "keywords": ["office"]
     },
     {
@@ -258,8 +266,8 @@
       "lecturer": "",
       "floor": "first",
       "type": "office",
-      "x": 754,
-      "y": 358,
+      "x": 574,
+      "y": 400,
       "keywords": ["office", "meeting"]
     },
     {
@@ -268,8 +276,8 @@
       "lecturer": "Rachel Blair (Staff);Richard Cook (Staff);Chantelle Attrill (Staff);Katie Robinson (Staff);Andrea West (Staff);Sasha Paton (Staff);Sara Ullah (Staff)",
       "floor": "first",
       "type": "office",
-      "x": 988,
-      "y": 290,
+      "x": 762,
+      "y": 362,
       "keywords": ["office"]
     },
     {
@@ -278,8 +286,8 @@
       "lecturer": "Craig Ramsay (Staff)",
       "floor": "first",
       "type": "office",
-      "x": 1189,
-      "y": 363,
+      "x": 912,
+      "y": 413,
       "keywords": ["office"]
     },
     {
@@ -288,8 +296,8 @@
       "lecturer": "Hanhe Lin (Staff)",
       "floor": "first",
       "type": "office",
-      "x": 1280,
-      "y": 358,
+      "x": 998,
+      "y": 411,
       "keywords": ["office"]
     },
     {
@@ -298,8 +306,8 @@
       "lecturer": "Tina Robertson (Staff);Christine Sinclair (Staff);Darren Anderson (Staff);Roxana Tudoran (Staff);Jenna Gaden (Staff)",
       "floor": "first",
       "type": "office",
-      "x": 1475,
-      "y": 290,
+      "x": 1149,
+      "y": 385,
       "keywords": ["office"]
     },
     {
@@ -308,8 +316,8 @@
       "lecturer": "Iain Martin (Staff)",
       "floor": "first",
       "type": "office",
-      "x": 1687,
-      "y": 366,
+      "x": 1308,
+      "y": 417,
       "keywords": ["office"]
     },
     {
@@ -318,8 +326,8 @@
       "lecturer": "",
       "floor": "first",
       "type": "room",
-      "x": 1778,
-      "y": 555,
+      "x": 1373,
+      "y": 560,
       "keywords": ["group space", "it", "computers"]
     },
     {
@@ -328,8 +336,8 @@
       "lecturer": "",
       "floor": "first",
       "type": "room",
-      "x":1538,
-      "y": 652,
+      "x": 1196,
+      "y": 641,
       "keywords": ["group space"]
     },
     {
@@ -338,31 +346,31 @@
       "lecturer": "",
       "floor": "first",
       "type": "room",
-      "x": 1445,
-      "y": 835,
+      "x": 1123,
+      "y": 783,
       "keywords": ["group space", "it", "computers"]
     },
     {
       "name": "WC - Ladies",
       "floor": "first",
       "type": "facility",
-      "x": 919,
-      "y": 552,
+      "x": 716,
+      "y": 558,
       "keywords": ["toilet", "bathroom", "wc"]
     },
     {
       "name": "WC - Gents",
       "floor": "first",
       "type": "facility",
-      "x": 1112,
-      "y": 557,
+      "x": 856,
+      "y": 560,
       "keywords": ["toilet", "bathroom", "wc"]
     },{
       "name": "Accessible WC",
       "floor": "first",
       "type": "facility",
-      "x": 831,
-      "y": 549,
+      "x": 639,
+      "y": 564,
       "keywords": ["toilet", "bathroom", "wc"]
     },
     {
@@ -371,8 +379,8 @@
       "lecturer": "",
       "floor": "first",
       "type": "room",
-      "x": 994,
-      "y": 860,
+      "x": 776,
+      "y": 818,
       "keywords": ["meeting", "lecture", "seminar"]
     },
     {
@@ -381,8 +389,8 @@
       "lecturer": "",
       "floor": "first",
       "type": "office",
-      "x": 570,
-      "y": 776,
+      "x": 477,
+      "y": 720,
       "keywords": ["office"]
     },
     {
@@ -391,8 +399,8 @@
       "lecturer": "John Lawrence (Staff)",
       "floor": "first",
       "type": "office",
-      "x": 661,
-      "y": 854,
+      "x": 499,
+      "y": 803,
       "keywords": ["office"]
     },
     {
@@ -401,8 +409,8 @@
       "lecturer": "Oluwafemi Samuel (Staff)",
       "floor": "first",
       "type": "office",
-      "x": 589,
-      "y": 941,
+      "x": 469,
+      "y": 847,
       "keywords": ["office"]
     },
     {
@@ -411,8 +419,8 @@
       "lecturer": "Chris Reed (Staff)",
       "floor": "first",
       "type": "office",
-      "x": 485,
-      "y": 903,
+      "x": 363,
+      "y": 835,
       "keywords": ["office"]
     },
     {
@@ -421,8 +429,8 @@
       "lecturer": "Vladimir Janjic (Staff)",
       "floor": "first",
       "type": "office",
-      "x": 474,
-      "y": 792,
+      "x": 365,
+      "y": 741,
       "keywords": ["office"]
     },
     {
@@ -431,30 +439,30 @@
       "lecturer": "Derek Brankin (Staff);Nicholas Dawes (Staff)",
       "floor": "first",
       "type": "office",
-      "x": 433,
-      "y": 660,
+      "x": 322,
+      "y": 641,
       "keywords": ["office"]
     },
     {
       "name": "Stairs - front",
       "floor": "first",
       "type": "facility",
-      "x": 438,
-      "y": 580,
+      "x": 269,
+      "y": 560,
       "keywords": ["stairs", "staircase"]
     },{
       "name": "Stairs - back",
       "floor": "first",
       "type": "facility",
-      "x": 983,
-      "y": 562,
+      "x": 990,
+      "y": 560,
       "keywords": ["stairs", "staircase"]
     },{
       "name": "Lift",
       "floor": "first",
       "type": "facility",
-      "x": 666,
-      "y": 643,
+      "x": 505,
+      "y": 628,
       "keywords": ["lift", "elevator"]
     },
 
@@ -466,15 +474,15 @@
       "lecturer": "",
       "floor": "second",
       "type": "room",
-      "x": 180,
-      "y": 489,
+      "x": 161,
+      "y": 549,
       "keywords": ["group space"]
     },{
       "name": "Terrace",
       "floor": "second",
       "type": "facility",
-      "x": 80,
-      "y": 504,
+      "x": 70,
+      "y": 551,
       "keywords": ["balcony", "terrace"]
     },{
       "room": "2.02",
@@ -482,8 +490,8 @@
       "lecturer": "Jacky Viser (Staff)",
       "floor": "second",
       "type": "office",
-      "x": 246,
-      "y": 370,
+      "x": 232,
+      "y": 417,
       "keywords": ["office"]
     },{
       "room": "2.03",
@@ -491,8 +499,8 @@
       "lecturer": "Yazhmozhi V M Vasuki Murugesan (PG Research);Ladan Safiee (PG Research);Nawaf Alajlani (PG Research);Anthony Sweeney (PG Research);Anderson You (PG Research);Michael Leonard (PG Research);Jian Liu (PG Research)",
       "floor": "second",
       "type": "office",
-      "x": 384,
-      "y": 314,
+      "x": 378,
+      "y": 356,
       "keywords": ["office"]
     },{
       "room": "2.04",
@@ -500,8 +508,8 @@
       "lecturer": "",
       "floor": "second",
       "type": "office",
-      "x": 586,
-      "y": 368,
+      "x": 574,
+      "y": 402,
       "keywords": ["office"]
     },{
       "room": "2.05",
@@ -509,8 +517,8 @@
       "lecturer": "Kamila Gorska (PG Research);Godfrey Inyama (PG Research);Somaye Moslemnejad (PG Research);Nicole Orr (PG Research);Ella Schad (PG Research);Ray Becker (Staff);Ramon Ruiz-Dolz (Staff);Eimear Maguire (Staff);Henrike Beyer (PG Research);Cameron Bryce (Staff);Zvony Delas (Student);Clara Seyfried (PG Research);Ayah Soufan (Staff);Yevhen Kostiuk (Staff)",
       "floor": "second",
       "type": "office",
-      "x": 761,
-      "y": 325,
+      "x": 764,
+      "y": 351,
       "keywords": ["office"]
     },{
       "room": "2.06",
@@ -518,8 +526,8 @@
       "lecturer": "Gemma Webster (Staff)",
       "floor": "second",
       "type": "office",
-      "x": 905,
-      "y": 362,
+      "x": 912,
+      "y": 411,
       "keywords": ["information", "lecturer", "help"]
     },{
       "room": "2.07",
@@ -527,8 +535,8 @@
       "lecturer": "Damiel Rough (Staff)",
       "floor": "second",
       "type": "office",
-      "x": 996,
-      "y": 365,
+      "x": 1003,
+      "y": 413,
       "keywords": ["office"]
     },{
       "room": "2.08",
@@ -536,8 +544,8 @@
       "lecturer": "Matteo Ciantia (Staff);Thomas Riccio (PG Research);Raheem Beg (PG Research);Saranraj Gururaj (PG Research);Libero Sandrini (PG Research);Jinhui Zheng (PG Research);Filip Jovanovic (PG Research);Alessio Genco (PG Research);Marco Previtali (Staff);Hussam Namanqani (PG Research);Nicholas Dawes (Staff)",
       "floor": "second",
       "type": "office",
-      "x": 1132,
-      "y": 314,
+      "x": 1147,
+      "y": 358,
       "keywords": ["office"]
     },{
       "room": "2.09",
@@ -545,8 +553,8 @@
       "lecturer": "Rachel Manzies (Staff)",
       "floor": "second",
       "type": "office",
-      "x": 1298,
-      "y": 373,
+      "x": 1311,
+      "y": 411,
       "keywords": ["office"]
     },{
       "room": "2.10",
@@ -554,8 +562,8 @@
       "lecturer": "Kate Ward (Staff);Scott Robinson (Staff);Judith Halliday (Staff);Ross Croall (Staff);Deepak Shamvedi (Staff)",
       "floor": "second",
       "type": "office",
-      "x": 1361,
-      "y": 501,
+      "x": 1367,
+      "y": 558,
       "keywords": ["office"]
     },{
       "room": "2.10A",
@@ -563,8 +571,8 @@
       "lecturer": "",
       "floor": "second",
       "type": "office",
-      "x": 1186,
-      "y": 586,
+      "x": 1192,
+      "y": 643,
       "keywords": ["meeting"]
     },{
       "room": "2.11",
@@ -572,29 +580,29 @@
       "lecturer": "Wayne Paul (Staff);Amy Mavroudis (Staff);Kevin Murphy-Steele (Staff);Laud Ochei (Staff);Noor Sabaruddin (Staff)",
       "floor": "second",
       "type": "office",
-      "x": 1111,
-      "y": 722,
+      "x": 1119,
+      "y": 786,
       "keywords": ["office"]
     },{
       "name": "WC - Gents",
       "floor": "second",
       "type": "facility",
-      "x": 853,
-      "y": 509,
+      "x": 863,
+      "y": 554,
       "keywords": ["toilet", "bathroom", "wc"]
     },{
       "name": "WC - Ladies",
       "floor": "second",
       "type": "facility",
-      "x": 715,
-      "y": 512,
+      "x": 714,
+      "y": 556,
       "keywords": ["toilet", "bathroom", "wc"]
     },{
       "name": "Accessible WC",
       "floor": "second",
       "type": "facility",
-      "x": 637,
-      "y": 526,
+      "x": 635,
+      "y": 568,
       "keywords": ["toilet", "bathroom", "wc"]
     },{
       "room": "2.15",
@@ -602,8 +610,8 @@
       "lecturer": "Elaine McIntyre (Staff);Debela Gemechu (PG Research)",
       "floor": "second",
       "type": "office",
-      "x": 769,
-      "y": 770,
+      "x": 762,
+      "y": 809,
       "keywords": ["office"]
     },{
       "room": "2.17",
@@ -611,8 +619,8 @@
       "lecturer": "",
       "floor": "second",
       "type": "office",
-      "x": 465,
-      "y": 659,
+      "x": 460,
+      "y": 709,
       "keywords": ["circulation"]
     },{
       "room": "2.18",
@@ -620,8 +628,8 @@
       "lecturer": "Ludovic Magerand (Staff)",
       "floor": "second",
       "type": "office",
-      "x": 522,
-      "y": 727,
+      "x": 507,
+      "y": 790,
       "keywords": ["office"]
     },{
       "room": "2.19",
@@ -629,8 +637,8 @@
       "lecturer": "Stephen McKenna (Staff)",
       "floor": "second",
       "type": "office",
-      "x": 479,
-      "y": 795,
+      "x": 462,
+      "y": 852,
       "keywords": ["office"]
     },{
       "room": "2.20",
@@ -638,8 +646,8 @@
       "lecturer": "Brian Plüss (Staff)",
       "floor": "second",
       "type": "office",
-      "x": 364,
-      "y": 770,
+      "x": 363,
+      "y": 826,
       "keywords": ["office"]
     },{
       "room": "2.21",
@@ -647,8 +655,8 @@
       "lecturer": "Iain Martin (Staff)",
       "floor": "second",
       "type": "office",
-      "x": 373,
-      "y": 671,
+      "x": 365,
+      "y": 741,
       "keywords": ["office"]
     },{
       "room": "2.22",
@@ -656,36 +664,36 @@
       "lecturer": "",
       "floor": "second",
       "type": "room",
-      "x": 312,
-      "y": 588,
+      "x": 340,
+      "y": 639,
       "keywords": ["group space"]
     },{
       "name": "Stairs - front",
       "floor": "second",
       "type": "facility",
-      "x": 287,
-      "y": 532,
+      "x": 260,
+      "y": 573,
       "keywords": ["stairs", "staircase"]
     },{
       "name": "Stairs - middle",
       "floor": "second",
       "type": "facility",
-      "x": 517,
-      "y": 506,
+      "x": 505,
+      "y": 560,
       "keywords": ["stairs", "staircase"]
     },{
       "name": "Stairs - back",
       "floor": "second",
       "type": "facility",
-      "x": 982,
-      "y": 512,
+      "x": 981,
+      "y": 562,
       "keywords": ["stairs", "staircase"]
     },{
       "name": "Lift",
       "floor": "second",
       "type": "facility",
-      "x": 514,
-      "y": 577,
+      "x": 505,
+      "y": 628,
       "keywords": ["lift", "elevator"]
     }
   ]

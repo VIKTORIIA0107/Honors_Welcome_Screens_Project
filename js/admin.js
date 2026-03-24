@@ -52,27 +52,22 @@ document.addEventListener("DOMContentLoaded", () => {
   // -----------------------------
   // MAP CLICK -> CAPTURE COORDINATES
   // -----------------------------
+   // -----------------------------
+  // MAP CLICK -> CAPTURE COORDINATES
+  // -----------------------------
   adminMap.addEventListener("click", (event) => {
     const rect = adminMap.getBoundingClientRect();
 
-    // Mouse/touch position relative to the displayed image
-    const displayX = event.clientX - rect.left;
-    const displayY = event.clientY - rect.top;
-
-    // Convert displayed position to the original image coordinate system
     const scaleX = adminMap.naturalWidth / rect.width;
     const scaleY = adminMap.naturalHeight / rect.height;
 
-    const realX = Math.round(displayX * scaleX);
-    const realY = Math.round(displayY * scaleY);
+    const x = Math.round((event.clientX - rect.left) * scaleX);
+    const y = Math.round((event.clientY - rect.top) * scaleY);
 
-    xInput.value = realX;
-    yInput.value = realY;
+    xInput.value = x;
+    yInput.value = y;
 
-    // Show the visible marker exactly where the user clicked
-    adminMarker.style.left = `${displayX}px`;
-    adminMarker.style.top = `${displayY}px`;
-    adminMarker.style.display = "block";
+    placeMarkerFromRealCoordinates(x, y);
   });
 
   // -----------------------------

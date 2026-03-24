@@ -20,6 +20,15 @@ export function setupSearch() {
   searchInput.addEventListener("pointerdown", () => {
     searchInput.focus();
   });
+
+  searchInput.addEventListener("input", () => {
+  if (!searchInput.value.trim()) {
+    clearSearchResults();
+    return;
+  }
+
+  performSearch();
+});
 }
 
 function performSearch() {
@@ -36,9 +45,15 @@ function performSearch() {
   message.textContent = "";
 
   if (!query) {
-    message.textContent = "Enter a room code, room name, lecturer, or facility.";
-    return;
-  }
+  clearSearchResults();
+  return;
+}
+
+if (query.length < 2) {
+  resultsContainer.innerHTML = "";
+  message.textContent = "Type at least 2 characters to search.";
+  return;
+}
 
   const matches = roomsData.filter((item) => {
     const haystack = item.searchText || "";
@@ -46,6 +61,16 @@ function performSearch() {
   });
 
   renderResults(matches, rawQuery);
+}
+
+function clearSearchResults() {
+  const resultsContainer = document.getElementById("results");
+  const message = document.getElementById("searchMessage");
+
+  if (!resultsContainer || !message) return;
+
+  resultsContainer.innerHTML = "";
+  message.textContent = "";
 }
 
 function renderResults(list, rawQuery) {
@@ -71,7 +96,7 @@ function renderResults(list, rawQuery) {
 
     const subtitleParts = [];
     if (code) subtitleParts.push(`Room ${code}`);
-    if (lecturersText) subtitleParts.push(`Lecturer: ${lecturersText}`);
+    if (lecturersText && item.type !== "facility") {subtitleParts.push(`Lecturer: ${lecturersText}`);}
     if (item.floor) subtitleParts.push(`${capitalise(item.floor)} floor`);
     if (item.type) subtitleParts.push(capitalise(item.type));
 
