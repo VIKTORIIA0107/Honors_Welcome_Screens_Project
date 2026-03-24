@@ -1,86 +1,116 @@
+/* =========================
+   IMPORT FONT
+   ========================= */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
+
+/* =========================
+   GLOBAL RESET & BASE
+   ========================= */
+
+/* Apply border-box sizing everywhere */
 * {
   box-sizing: border-box;
 }
 
+/* Reset default margins and enable touch optimization */
 html,
 body {
   margin: 0;
   padding: 0;
   min-height: 100%;
-  touch-action: manipulation;
+  touch-action: manipulation; /* improves touchscreen responsiveness */
 }
 
+/* Main body styling */
 body {
   font-family: 'Inter', sans-serif;
   color: #1c3e9b;
+
+  /* Background image styling */
   background-image: url('../assets/background.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
 }
 
+/* Disable cursor when using touchscreen mode */
 body.touch-active * {
   cursor: default !important;
 }
+
 
 /* =========================
    PAGE LAYOUT
    ========================= */
 
+/* Main page wrapper */
 .page-shell {
   min-height: 100vh;
   padding: 40px 20px;
+
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
 
+/* Header sections */
 .hero-header,
 .page-header {
   text-align: center;
   margin-bottom: 24px;
 }
 
+/* Main titles */
 .hero-header h1,
 .page-header h1 {
   margin: 0;
   font-size: clamp(2rem, 4vw, 3.4rem);
   font-weight: 700;
   color: #1c3e9b;
+
+  /* Soft shadow for readability */
   text-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
 }
 
+/* Subtitle text */
 .hero-header p,
 .page-header p {
   margin: 10px 0 0;
   font-size: 1rem;
   color: #1c3e9b;
+
   text-shadow: 0 6px 18px rgba(0, 0, 0, 0.14);
 }
 
+/* Glass-style container */
 .container {
   width: min(1100px, 94vw);
+
   background: rgba(255, 255, 255, 0.16);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
+
   border: 1px solid rgba(255, 255, 255, 0.24);
   border-radius: 24px;
   padding: 30px;
+
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.18);
 }
 
+/* Home page specific container */
 .home-container {
   width: min(520px, 92vw);
   text-align: center;
 }
 
+
 /* =========================
-   BUTTONS / INTERACTIVE
+   BUTTONS & INTERACTION
    ========================= */
 
+/* Improve touch behaviour */
 button,
 .button,
 .small-btn,
@@ -94,6 +124,7 @@ textarea {
   -webkit-tap-highlight-color: transparent;
 }
 
+/* Ensure large touch targets */
 .button,
 .search-button,
 .small-btn,
@@ -107,6 +138,7 @@ textarea {
   font-size: 18px;
 }
 
+/* Disable text selection */
 .button,
 .search-button,
 .small-btn,
@@ -117,6 +149,7 @@ textarea {
   -webkit-user-select: none;
 }
 
+/* Pointer cursor */
 .button,
 .search-button,
 .small-btn,
@@ -126,682 +159,263 @@ textarea {
   cursor: pointer;
 }
 
+/* Primary button style */
 .button {
   display: block;
   width: 100%;
   text-align: center;
-  text-decoration: none;
+
   background: rgba(255, 255, 255, 0.96);
   color: #1c3e9b;
-  font-weight: 600;
+
   padding: 16px;
   margin: 14px 0;
-  border: none;
+
   border-radius: 16px;
+  font-weight: 600;
+
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
+/* Hover effect */
 .button:hover {
   transform: translateY(-2px);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.16);
 }
 
+/* Back button spacing */
 .back-link {
   margin-top: 24px;
 }
 
+/* Search button */
 .search-button {
   padding: 14px 22px;
-  border: none;
   border-radius: 12px;
+
   background: #1c3e9b;
   color: white;
+
   font-weight: 600;
-  transition: 0.2s ease;
 }
 
+/* Hover */
 .search-button:hover {
   background: #16327f;
 }
 
+/* Small buttons (map, facilities, etc.) */
 .small-btn,
 .facility-card button {
-  border: none;
   border-radius: 10px;
   background: rgb(32, 197, 4);
   color: white;
+
   font-weight: 600;
-  padding: 10px 16px;
-  transition: 0.2s ease;
 }
 
+/* Hover */
 .small-btn:hover,
 .facility-card button:hover {
   background: rgb(25, 170, 3);
 }
 
+/* Press effect */
 .pressed {
   transform: scale(0.98);
 }
+
 
 /* =========================
    SEARCH PAGE
    ========================= */
 
+/* Container */
 .search-container {
   max-width: 900px;
 }
 
+/* Search input row */
 .search-box {
   display: flex;
   gap: 12px;
-  margin-bottom: 18px;
 }
 
+/* Input field */
 .search-input {
   flex: 1;
   padding: 14px 16px;
+
   border: 2px solid #d8dde6;
   border-radius: 12px;
-  outline: none;
-  color: #1c2430;
-  background: rgba(255, 255, 255, 0.96);
 }
 
+/* Focus state */
 .search-input:focus {
   border-color: #1c3e9b;
   box-shadow: 0 0 0 4px rgba(28, 62, 155, 0.14);
 }
 
-.search-message {
-  min-height: 24px;
-  margin: 0 0 14px;
-  color: white;
-}
-
-.search-tools {
-  display: flex;
-  gap: 12px;
-  margin-bottom: 16px;
-  flex-wrap: wrap;
-}
-
-.results {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-.result-card,
-.info-card,
-.empty-state,
-.facility-card {
-  background: rgba(255, 255, 255, 0.96);
-  color: #1c2430;
-  border-radius: 16px;
-  padding: 20px;
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
-  touch-action: manipulation;
-}
-
-.result-card {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-}
-
-.result-info h3 {
-  margin: 0 0 6px;
-  font-size: 1.1rem;
-}
-
-.result-info p,
-.info-card p,
-.facility-card p {
-  margin: 0;
-  color: #4d5a6a;
-}
 
 /* =========================
-   ON-SCREEN KEYBOARD
+   KEYBOARD
    ========================= */
 
 .onscreen-keyboard {
   background: rgba(255, 255, 255, 0.96);
   border-radius: 18px;
-  padding: 16px;
-  margin-bottom: 18px;
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
 }
 
+/* Key rows */
 .keyboard-row {
   display: flex;
-  gap: 8px;
-  margin-bottom: 8px;
-  flex-wrap: wrap;
   justify-content: center;
+  gap: 8px;
 }
 
-.keyboard-row:last-child {
-  margin-bottom: 0;
-}
-
+/* Key buttons */
 .keyboard-row button {
   min-width: 56px;
-  min-height: 52px;
-  border: none;
   border-radius: 12px;
+
   background: #eef3ff;
   color: #1c3e9b;
-  font-weight: 700;
-  cursor: pointer;
-  transition: background 0.2s ease, transform 0.2s ease;
 }
 
+/* Hover */
 .keyboard-row button:hover {
   background: #dce7ff;
 }
 
-.keyboard-row .wide-key {
-  min-width: 160px;
-}
 
 /* =========================
    MAP PAGE
    ========================= */
 
-.map-container {
-  width: min(1280px, 96vw);
-}
-
+/* Floor buttons container */
 .floor-tabs {
   display: flex;
   justify-content: center;
-  align-items: center;
   gap: 18px;
-  flex-wrap: wrap;
-  margin-bottom: 28px;
 }
 
+/* Floor button */
 .tab {
-  border: none;
   border-radius: 999px;
   padding: 14px 26px;
-  font-weight: 700;
-  font-size: 18px;
 
   background: rgba(255, 255, 255, 0.9);
   color: #1c3e9b;
 
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  transition: all 0.2s ease;
+  font-weight: 700;
 }
 
+/* Active floor */
 .tab.active {
   background: #1c3e9b;
   color: white;
 
-  box-shadow: 0 6px 18px rgba(28, 62, 155, 0.4);
   transform: scale(1.05);
 }
 
-.tab:hover {
-  transform: translateY(-2px);
-}
-
-.tab:active {
-  transform: scale(0.96);
-}
-
+/* Map wrapper */
 .map-wrapper {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   overflow: auto;
-  min-height: 420px;
-  -webkit-overflow-scrolling: touch;
   touch-action: pan-x pan-y;
-  user-select: none;
-  -webkit-user-select: none;
-  -webkit-touch-callout: none;
 }
 
-.floor-map {
-  display: none;
-  max-width: 100%;
-  max-height: 78vh;
-  border-radius: 18px;
-  background: transparent;
-  padding: 8px;
-  pointer-events: auto;
-  user-select: none;
-  -webkit-user-select: none;
-  -webkit-touch-callout: none;
-}
-
-.active-map {
-  display: block;
-}
-
-#marker,
-.marker {
-  position: absolute;
-  width: 22px;
-  height: 22px;
-  background: #d11b1b;
-  border: 3px solid #ffffff;
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
-  display: none;
-  z-index: 20;
-  box-shadow: 0 0 0 8px rgba(255, 59, 48, 0.22);
-  pointer-events: none;
-}
-
-.room-marker {
-  position: absolute;
-  width: 18px;
-  height: 18px;
+/* Marker */
+#marker {
   background: red;
   border-radius: 50%;
-  transform: translate(-50%, -50%);
-  pointer-events: none;
+  pointer-events: none; /* important for touch */
 }
+
 
 /* =========================
    FACILITIES PAGE
    ========================= */
 
-.facilities-container {
-  width: min(1100px, 94vw);
-}
-
 .facility-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 18px;
 }
 
+/* Facility card */
 .facility-card {
-  min-height: 160px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
   text-align: center;
-  gap: 10px;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border-radius: 16px;
 }
 
-.facility-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.14);
-}
-
-.facility-card h3 {
-  margin: 0;
-  font-size: 1.05rem;
-  color: #1c2430;
-}
-
-.facility-card p {
-  font-size: 0.98rem;
-}
-
+/* Emoji */
 .facility-emoji {
   font-size: 2rem;
-  line-height: 1;
 }
+
 
 /* =========================
    ACCESSIBILITY PAGE
    ========================= */
 
-.accessibility-container {
-  width: min(980px, 94vw);
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.a11y-hero {
-  text-align: left;
-}
-
-.a11y-hero h2,
-.a11y-section-title {
-  margin: 0 0 10px;
-  color: #1c2430;
-}
-
-.a11y-section {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
 .a11y-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 16px;
 }
 
-.a11y-support-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 16px;
-}
-
-.a11y-card {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
+/* Accessibility icon */
 .a11y-icon {
   font-size: 2rem;
-  line-height: 1;
 }
 
-.a11y-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-}
-
-.a11y-actions .button {
-  margin: 0;
-}
-
-.a11y-note {
-  border-left: 5px solid #1c3e9b;
-}
-
-.info-card h3 {
-  margin: 0 0 8px;
-  color: #1c2430;
-}
 
 /* =========================
    ADMIN PAGE
    ========================= */
 
-.admin-container {
-  width: min(1400px, 96vw);
-}
-
 .admin-layout {
   display: grid;
-  grid-template-columns: 420px minmax(0, 1fr);
   gap: 22px;
-  align-items: start;
 }
 
-.admin-panel,
-.admin-map-panel {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.admin-card {
-  background: rgba(255, 255, 255, 0.94);
-  color: #1c2430;
-  border-radius: 20px;
-  padding: 22px;
-  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.12);
-}
-
-.admin-card h2 {
-  margin: 0 0 6px;
-  font-size: 1.15rem;
-  color: #1c2430;
-}
-
-.admin-subtitle,
-.map-hint {
-  margin: 0;
-  color: #5b6777;
-  font-size: 0.95rem;
-}
-
-.section-heading {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  margin-bottom: 14px;
-  flex-wrap: wrap;
-}
-
-.admin-form {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-.form-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 14px;
-}
-
-.form-group {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.form-group label {
-  font-size: 0.95rem;
-  font-weight: 600;
-  color: #1c2430;
-}
-
+/* Admin form inputs */
 .admin-form input,
 .admin-form select {
-  width: 100%;
-  padding: 13px 14px;
-  border: 2px solid #d8dde6;
   border-radius: 12px;
-  font-size: 15px;
-  background: #ffffff;
-  color: #1c2430;
-  outline: none;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-.admin-form input:focus,
-.admin-form select:focus {
-  border-color: #1c3e9b;
-  box-shadow: 0 0 0 4px rgba(28, 62, 155, 0.12);
-}
-
-.coords-grid input[readonly] {
-  background: #f6f8fc;
-  font-weight: 600;
-}
-
-.admin-actions {
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
-  margin-top: 6px;
-}
-
-.admin-secondary-btn {
-  border: none;
-  border-radius: 12px;
-  background: #e9eef8;
-  color: #1c3e9b;
-  font-weight: 600;
-  padding: 12px 16px;
-  transition: 0.2s ease;
-}
-
-.admin-secondary-btn:hover {
-  background: #dce5f6;
-  transform: translateY(-1px);
-}
-
-.admin-map-wrapper {
-  min-height: 620px;
-  max-height: 78vh;
-  border-radius: 18px;
-  background: linear-gradient(180deg, rgba(244, 247, 255, 0.92), rgba(232, 238, 250, 0.88));
-  border: 1px solid rgba(28, 62, 155, 0.08);
-  padding: 16px;
-}
-
-.admin-map-wrapper .floor-map {
-  max-width: 100%;
-  max-height: 72vh;
-  display: block;
-  margin: 0 auto;
-  border-radius: 14px;
-  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.12);
-}
-
-.saved-card {
-  margin-top: 22px;
-}
-
-.room-count-badge {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 8px 12px;
-  border-radius: 999px;
-  background: rgba(28, 62, 155, 0.1);
-  color: #1c3e9b;
-  font-weight: 700;
-  font-size: 0.9rem;
-}
-
-#savedRoomsList .result-card {
-  align-items: flex-start;
-}
-
-.saved-room-actions {
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-}
-
-.saved-room-actions .small-btn {
-  width: auto;
-  min-width: 88px;
-}
-
-.delete-btn {
-  background: #d11b1b !important;
-}
-
-.delete-btn:hover {
-  background: #b11414 !important;
-}
-
-.edit-btn {
-  background: #1c3e9b !important;
-}
-
-.edit-btn:hover {
-  background: #16327f !important;
-}
-
-.json-card pre,
+/* JSON output */
 #jsonOutput {
-  margin: 0;
   background: #0f172a;
   color: #dbeafe;
-  border-radius: 16px;
-  padding: 18px;
-  font-size: 0.92rem;
-  line-height: 1.5;
-  overflow: auto;
-  min-height: 220px;
-  max-height: 340px;
 }
 
+
 /* =========================
-   UTILITY
+   UTILITIES
    ========================= */
 
 .hidden {
   display: none !important;
 }
 
+
 /* =========================
-   RESPONSIVE
+   RESPONSIVE DESIGN
    ========================= */
 
-@media (max-width: 1100px) {
-  .admin-layout {
-    grid-template-columns: 1fr;
-  }
-
-  .admin-map-wrapper {
-    min-height: 460px;
-  }
-}
-
 @media (max-width: 700px) {
-  .page-shell {
-    padding: 24px 14px;
-  }
-
-  .container {
-    padding: 20px;
-  }
-
   .search-box {
     flex-direction: column;
   }
 
-  .result-card {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .small-btn,
-  .search-button,
-  .facility-card button,
-  .a11y-actions .button {
-    width: 100%;
-  }
-
-  .a11y-grid,
-  .a11y-support-grid,
-  .facility-grid,
-  .form-grid {
+  .facility-grid {
     grid-template-columns: 1fr;
-  }
-
-  .a11y-actions,
-  .admin-actions {
-    flex-direction: column;
-  }
-
-  .section-heading {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .admin-actions button,
-  .section-heading button {
-    width: 100%;
   }
 }
 
+/* Disable hover effects on touch devices */
 @media (hover: none) {
-  .button:hover,
-  .search-button:hover,
-  .small-btn:hover,
-  .facility-card:hover,
-  .facility-card button:hover,
-  .admin-secondary-btn:hover {
+  .button:hover {
     transform: none;
     box-shadow: none;
   }
