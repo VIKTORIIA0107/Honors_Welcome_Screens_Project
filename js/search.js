@@ -21,11 +21,13 @@ export function setupSearch() {
     searchInput.focus();
   });
 
-  searchInput.addEventListener("input", () => {
-  if (!searchInput.value.trim()) {
-    clearSearchResults();
-    return;
-  }
+  let timeout;
+
+  searchInput.addEventListener("input", () => { 
+    clearTimeout(timeout);
+    timeout = setTimeout(() => {
+    performSearch();
+  }, 150); // delay
 
   performSearch();
 });

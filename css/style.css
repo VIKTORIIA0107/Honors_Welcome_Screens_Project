@@ -277,6 +277,7 @@ textarea {
 
 /* Horizontal layout for each search result */
 .result-card {
+  transition: all 0.2s ease;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -296,7 +297,17 @@ textarea {
   margin: 0;
   color: #4d5a6a;
 }
-
+.results {
+  max-height: 400px;   /* or 300–500px depending on your design */
+  overflow-y: auto;
+  margin-top: 20px;
+}
+.results:empty::before {
+  content: "Start typing to search...";
+  display: block;
+  padding: 20px;
+  color: #888;
+}
 /* =========================
    ON-SCREEN KEYBOARD
    ========================= */
