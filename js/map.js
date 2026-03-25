@@ -83,6 +83,16 @@ export function setupFloorTabs() {
   const tabs = document.querySelectorAll(".floor-tabs .tab");
   if (!tabs.length) return;
 
+  const params = new URLSearchParams(window.location.search);
+  const isLocked = params.get("locked") === "1";
+
+  if (isLocked) {
+    tabs.forEach((tab) => {
+      tab.style.display = "none";
+    });
+    return;
+  }
+
   tabs.forEach((tab) => {
     bindPress(tab, () => {
       const floor = tab.dataset.floor || "ground";
@@ -104,7 +114,8 @@ export function openMap(item) {
   const params = new URLSearchParams({
     floor: item.floor || "ground",
     label: item.room ? `${item.room} - ${item.name || "Room"}` : item.name || "Selected location",
-    from: fromPage
+    from: fromPage,
+    locked: "1"
   });
 
   const hasValidCoordinates =
@@ -128,6 +139,7 @@ export function initialiseMapPage() {
   const xParam = params.get("x");
   const yParam = params.get("y");
   const label = params.get("label") || "Viewing floor map";
+  const isLocked = params.get("locked") === "1";
 
   selectedRoomText.textContent = label;
 
@@ -147,6 +159,11 @@ export function initialiseMapPage() {
   } else {
     currentMarkerData = null;
     markerHide();
+  }
+
+  if (isLocked) {
+    const tabsWrapper = document.querySelector(".floor-tabs");
+    if (tabsWrapper) tabsWrapper.style.display = "none";
   }
 
   activateFloor(floor);

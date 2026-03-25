@@ -12,7 +12,6 @@ document.addEventListener("DOMContentLoaded", async () => {
   setupFacilities();
   initialiseMapPage();
   setupBackButton();
-  setupKeyboardToggle();
   setupPressedState();
 
   document.addEventListener("pointerdown", () => {

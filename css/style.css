@@ -242,7 +242,7 @@ textarea {
 
 /* Area for search status text like “No results” or result count */
 .search-message {
-  min-height: 24px;
+  min-height: 28px;
   margin: 0 0 14px;
   color: white;
 }
@@ -257,9 +257,15 @@ textarea {
 
 /* Search results list layout */
 .results {
+  min-height: 320px;
+  max-height: 320px;
+  overflow-y: auto;
   display: flex;
   flex-direction: column;
   gap: 14px;
+}
+.onscreen-keyboard {
+  min-height: 340px;
 }
 
 /* Shared card style for results, info sections, empty states, and facilities */
