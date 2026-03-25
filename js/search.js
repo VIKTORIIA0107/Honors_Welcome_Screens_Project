@@ -5,8 +5,11 @@ import { bindPress, capitalise, escapeHtml } from "./ui.js";
 export function setupSearch() {
   const searchBtn = document.getElementById("searchBtn");
   const searchInput = document.getElementById("searchInput");
+  const keyboard = document.getElementById("onscreenKeyboard");
 
   if (!searchBtn || !searchInput) return;
+
+  let timeout;
 
   bindPress(searchBtn, performSearch);
 
@@ -19,18 +22,32 @@ export function setupSearch() {
 
   searchInput.addEventListener("pointerdown", () => {
     searchInput.focus();
+    openKeyboard(keyboard);
   });
 
-  let timeout;
+  searchInput.addEventListener("focus", () => {
+    openKeyboard(keyboard);
+  });
 
-  searchInput.addEventListener("input", () => { 
+  searchInput.addEventListener("input", () => {
     clearTimeout(timeout);
-    timeout = setTimeout(() => {
-    performSearch();
-  }, 150); // delay
 
-  performSearch();
-});
+    const value = searchInput.value.trim();
+
+    if (!value) {
+      clearSearchResults();
+      return;
+    }
+
+    timeout = setTimeout(() => {
+      performSearch();
+    }, 150);
+  });
+}
+
+function openKeyboard(keyboard) {
+  if (!keyboard) return;
+  keyboard.classList.remove("hidden");
 }
 
 function performSearch() {
@@ -47,15 +64,15 @@ function performSearch() {
   message.textContent = "";
 
   if (!query) {
-  clearSearchResults();
-  return;
-}
+    clearSearchResults();
+    return;
+  }
 
-if (query.length < 2) {
-  resultsContainer.innerHTML = "";
-  message.textContent = "Type at least 2 characters to search.";
-  return;
-}
+  if (query.length < 2) {
+    resultsContainer.innerHTML = "";
+    message.textContent = "Type at least 2 characters to search.";
+    return;
+  }
 
   const matches = roomsData.filter((item) => {
     const haystack = item.searchText || "";
@@ -97,8 +114,11 @@ function renderResults(list, rawQuery) {
     const lecturersText = Array.isArray(item.lecturers) ? item.lecturers.join(", ") : "";
 
     const subtitleParts = [];
+
     if (code) subtitleParts.push(`Room ${code}`);
-    if (lecturersText && item.type !== "facility") {subtitleParts.push(`Lecturer: ${lecturersText}`);}
+    if (lecturersText && item.type !== "facility") {
+      subtitleParts.push(`Lecturer: ${lecturersText}`);
+    }
     if (item.floor) subtitleParts.push(`${capitalise(item.floor)} floor`);
     if (item.type) subtitleParts.push(capitalise(item.type));
 
