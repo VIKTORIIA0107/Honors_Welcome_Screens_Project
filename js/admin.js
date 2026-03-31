@@ -16,9 +16,6 @@ const floorImages = {
 };
 
 document.addEventListener("DOMContentLoaded", () => {
-  // -----------------------------
-  // ELEMENT REFERENCES
-  // -----------------------------
   const floorSelect = document.getElementById("floorSelect");
   const adminMap = document.getElementById("adminMap");
   const adminMarker = document.getElementById("adminMarker");
@@ -39,9 +36,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const jsonOutput = document.getElementById("jsonOutput");
   const roomCountBadge = document.getElementById("roomCountBadge");
 
-  // -----------------------------
+
   // FLOOR CHANGE
-  // -----------------------------
   floorSelect.addEventListener("change", () => {
     adminMap.src = floorImages[floorSelect.value];
     adminMarker.style.display = "none";
@@ -49,12 +45,8 @@ document.addEventListener("DOMContentLoaded", () => {
     yInput.value = "";
   });
 
-  // -----------------------------
+
   // MAP CLICK -> CAPTURE COORDINATES
-  // -----------------------------
-   // -----------------------------
-  // MAP CLICK -> CAPTURE COORDINATES
-  // -----------------------------
   adminMap.addEventListener("click", (event) => {
     const rect = adminMap.getBoundingClientRect();
 
@@ -70,9 +62,7 @@ document.addEventListener("DOMContentLoaded", () => {
     placeMarkerFromRealCoordinates(x, y);
   });
 
-  // -----------------------------
   // SAVE OR UPDATE ROOM
-  // -----------------------------
   saveRoomBtn.addEventListener("click", () => {
     const room = roomInput.value.trim();
     const name = nameInput.value.trim();
@@ -117,18 +107,14 @@ document.addEventListener("DOMContentLoaded", () => {
     clearForm();
   });
 
-  // -----------------------------
   // CLEAR FORM
-  // -----------------------------
   clearFormBtn.addEventListener("click", () => {
     clearForm();
     editingIndex = -1;
     saveRoomBtn.textContent = "Save Room";
   });
 
-  // -----------------------------
   // COPY JSON OUTPUT
-  // -----------------------------
   copyJsonBtn.addEventListener("click", async () => {
     const jsonText = JSON.stringify({ rooms: createdRooms }, null, 2);
 
@@ -144,9 +130,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // -----------------------------
   // UPDATE OUTPUT AREAS
-  // -----------------------------
   function updateOutput() {
     jsonOutput.textContent = JSON.stringify({ rooms: createdRooms }, null, 2);
 
@@ -210,9 +194,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // -----------------------------
   // LOAD ROOM INTO FORM
-  // -----------------------------
   function loadRoomIntoForm(roomItem, index) {
     editingIndex = index;
 
@@ -235,9 +217,7 @@ document.addEventListener("DOMContentLoaded", () => {
     };
   }
 
-  // -----------------------------
   // DISPLAY MARKER FROM SAVED COORDINATES
-  // -----------------------------
   function placeMarkerFromRealCoordinates(realX, realY) {
     const rect = adminMap.getBoundingClientRect();
 
@@ -252,9 +232,7 @@ document.addEventListener("DOMContentLoaded", () => {
     adminMarker.style.display = "block";
   }
 
-  // -----------------------------
   // CLEAR FORM
-  // -----------------------------
   function clearForm() {
     roomInput.value = "";
     nameInput.value = "";
@@ -266,9 +244,7 @@ document.addEventListener("DOMContentLoaded", () => {
     adminMarker.style.display = "none";
   }
 
-  // -----------------------------
   // HELPERS
-  // -----------------------------
   function capitalise(value) {
     if (!value) return "";
     return value.charAt(0).toUpperCase() + value.slice(1);

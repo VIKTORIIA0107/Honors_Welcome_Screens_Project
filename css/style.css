@@ -1,12 +1,9 @@
-/* Imports the Inter font from Google Fonts for the whole project */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
-/* Makes width and height calculations more predictable for all elements */
 * {
   box-sizing: border-box;
 }
 
-/* Removes default spacing and enables touch-friendly behavior on the page */
 html,
 body {
   margin: 0;
@@ -29,10 +26,6 @@ body {
 body.touch-active * {
   cursor: default !important;
 }
-
-/* =========================
-   PAGE LAYOUT
-   ========================= */
 
 /* Main wrapper used across pages to center content vertically and horizontally */
 .page-shell {
@@ -70,7 +63,6 @@ body.touch-active * {
   text-shadow: 0 6px 18px rgba(0, 0, 0, 0.14);
 }
 
-/* Glassmorphism-style container used for most page content */
 .container {
   width: min(1100px, 94vw);
   background: rgba(255, 255, 255, 0.16);
@@ -87,10 +79,6 @@ body.touch-active * {
   width: min(520px, 92vw);
   text-align: center;
 }
-
-/* =========================
-   BUTTONS / INTERACTIVE
-   ========================= */
 
 /* Touch optimization for buttons, links, inputs and controls */
 button,
@@ -157,13 +145,11 @@ textarea {
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-/* Hover effect for main buttons */
 .button:hover {
   transform: translateY(-2px);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.16);
 }
 
-/* Extra spacing above back links/buttons */
 .back-link {
   margin-top: 24px;
 }
@@ -179,7 +165,6 @@ textarea {
   transition: 0.2s ease;
 }
 
-/* Hover state for search button */
 .search-button:hover {
   background: #16327f;
 }
@@ -202,14 +187,11 @@ textarea {
   background: rgb(25, 170, 3);
 }
 
-/* Used when button is actively being pressed */
 .pressed {
   transform: scale(0.98);
 }
 
-/* =========================
-   SEARCH PAGE
-   ========================= */
+/* SEARCH PAGE */
 
 /* Width limit for the search page content */
 .search-container {
@@ -304,7 +286,7 @@ textarea {
   color: #4d5a6a;
 }
 .results {
-  max-height: 400px;   /* or 300–500px depending on your design */
+  max-height: 400px;   
   overflow-y: auto;
   margin-top: 20px;
 }
@@ -314,9 +296,7 @@ textarea {
   padding: 20px;
   color: #888;
 }
-/* =========================
-   ON-SCREEN KEYBOARD
-   ========================= */
+/*ON-SCREEN KEYBOARD*/
 
 /* Main container for the onscreen keyboard */
 .onscreen-keyboard {
@@ -364,9 +344,7 @@ textarea {
   min-width: 160px;
 }
 
-/* =========================
-   MAP PAGE
-   ========================= */
+/*MAP PAGE*/
 
 /* Wider layout for the map page */
 .map-container {
@@ -490,9 +468,7 @@ textarea {
   pointer-events: none;
 }
 
-/* =========================
-   FACILITIES PAGE
-   ========================= */
+/*FACILITIES PAGE*/
 
 /* Width setting for facilities page */
 .facilities-container {
@@ -542,9 +518,7 @@ textarea {
   line-height: 1;
 }
 
-/* =========================
-   ACCESSIBILITY PAGE
-   ========================= */
+/*ACCESSIBILITY PAGE */
 
 /* Main container for the accessibility page */
 .accessibility-container {
@@ -623,9 +597,7 @@ textarea {
   color: #1c2430;
 }
 
-/* =========================
-   ADMIN PAGE
-   ========================= */
+/*ADMIN PAGE*/
 
 /* Main width for admin page */
 .admin-container {
@@ -853,18 +825,14 @@ textarea {
   max-height: 340px;
 }
 
-/* =========================
-   UTILITY
-   ========================= */
+/*UTILITY*/
 
 /* Generic hidden class */
 .hidden {
   display: none !important;
 }
 
-/* =========================
-   RESPONSIVE
-   ========================= */
+/*RESPONSIVE*/
 
 /* Tablet / smaller laptop adjustments */
 @media (max-width: 1100px) {
