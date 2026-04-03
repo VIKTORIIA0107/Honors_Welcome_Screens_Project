@@ -4,6 +4,7 @@ import { bindPress, capitalise, escapeHtml } from "./ui.js";
 
 let searchInitialised = false;
 
+// Load data from JSON files and combine lecturer info with room data
 export function setupSearch() {
   if (searchInitialised) return;
   searchInitialised = true;
@@ -50,6 +51,7 @@ export function setupSearch() {
     }, 150);
   });
 
+// Set up on-screen keyboard button bindings
   if (keyboard) {
     keyboard.querySelectorAll("[data-key]").forEach((button) => {
       if (button.dataset.bound === "true") return;
@@ -77,7 +79,7 @@ export function setupSearch() {
     });
   }
 }
-
+// Perform the search based on the input value and render results
 function performSearch() {
   const searchInput = document.getElementById("searchInput");
   const resultsContainer = document.getElementById("results");
@@ -109,6 +111,7 @@ function performSearch() {
   renderResults(matches, rawQuery);
 }
 
+// Load data from JSON files and combine lecturer info with room data
 function clearSearchResults() {
   const resultsContainer = document.getElementById("results");
   const message = document.getElementById("searchMessage");
@@ -119,6 +122,7 @@ function clearSearchResults() {
   message.textContent = "";
 }
 
+// Render the search results as cards with a button to show each item on the map
 function renderResults(list, rawQuery) {
   const resultsContainer = document.getElementById("results");
   const message = document.getElementById("searchMessage");

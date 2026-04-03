@@ -17,6 +17,7 @@ function normaliseText(value) {
     .trim();
 }
 
+// Load data from JSON files
 export async function loadData() {
   try {
     const [roomsResponse, lecturersResponse] = await Promise.all([
@@ -42,6 +43,7 @@ export async function loadData() {
   }
 }
 
+// Combine lecturer data with room data based on room codes and inline lecturer names
 function attachLecturersToRooms() {
   roomsData = roomsData.map((room) => {
     const roomCode = String(room.room || "").trim();

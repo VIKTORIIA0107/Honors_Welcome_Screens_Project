@@ -8,11 +8,13 @@ const FLOOR_IDS = {
   second: "secondMap"
 };
 
+// Get the map image element for a given floor
 function getMapImageByFloor(floor) {
   const id = FLOOR_IDS[floor];
   return id ? document.getElementById(id) : null;
 }
 
+// Load data from JSON files
 function activateFloor(floor) {
   const selectedFloor = FLOOR_IDS[floor] ? floor : "ground";
   const tabs = document.querySelectorAll(".floor-tabs .tab");
@@ -37,11 +39,13 @@ function activateFloor(floor) {
   }
 }
 
+// Hide the marker element
 function markerHide() {
   const marker = document.getElementById("marker");
   if (marker) marker.style.display = "none";
 }
 
+// Update the marker's position based on currentMarkerData and active map
 function updateMarkerPosition() {
   const marker = document.getElementById("marker");
   const mapWrapper = document.querySelector(".map-wrapper");
@@ -79,6 +83,7 @@ function updateMarkerPosition() {
   marker.style.display = "block";
 }
 
+// Load data from JSON files
 export function setupFloorTabs() {
   const tabs = document.querySelectorAll(".floor-tabs .tab");
   if (!tabs.length) return;
@@ -106,6 +111,7 @@ export function setupFloorTabs() {
   });
 }
 
+// Open the map page with query parameters based on the selected item
 export function openMap(item) {
   const fromPage = window.location.pathname.includes("facilities")
     ? "facilities"
@@ -130,6 +136,7 @@ export function openMap(item) {
   window.location.href = `map.html?${params.toString()}`;
 }
 
+// Initialize the map page based on URL parameters and set up event listeners
 export function initialiseMapPage() {
   const selectedRoomText = document.getElementById("selectedRoomText");
   if (!selectedRoomText) return;

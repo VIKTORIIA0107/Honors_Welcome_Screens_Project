@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
 
-  // MAP CLICK -> CAPTURE COORDINATES
+  // MAP CLICK 
   adminMap.addEventListener("click", (event) => {
     const rect = adminMap.getBoundingClientRect();
 

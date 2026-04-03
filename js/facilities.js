@@ -2,6 +2,7 @@ import { roomsData } from "./data.js";
 import { openMap } from "./map.js";
 import { bindPress, capitalise, escapeHtml } from "./ui.js";
 
+// Get an appropriate emoji for a facility based on its name
 function getFacilityEmoji(name = "") {
   const value = name.toLowerCase();
 
@@ -15,6 +16,7 @@ function getFacilityEmoji(name = "") {
   return "📍";
 }
 
+// FACILITIES PAGE
 export function setupFacilities() {
   const container = document.getElementById("facilityList");
   if (!container) return;
@@ -54,6 +56,7 @@ export function setupFacilities() {
     });
   }
 
+  // Initialize with the first tab's floor
   const activeTab = document.querySelector(".floor-tabs .tab.active");
   renderFacilities(activeTab?.dataset.floor || "ground");
 

@@ -3,6 +3,7 @@ export function capitalise(value) {
   return value.charAt(0).toUpperCase() + value.slice(1);
 }
 
+// Escape HTML special characters to prevent XSS
 export function escapeHtml(value) {
   return String(value ?? "")
     .replaceAll("&", "&amp;")
@@ -12,6 +13,7 @@ export function escapeHtml(value) {
     .replaceAll("'", "&#039;");
 }
 
+// Bind a handler to the pointerdown event for better responsiveness on touch devices
 export function bindPress(element, handler) {
   if (!element) return;
 
@@ -21,6 +23,7 @@ export function bindPress(element, handler) {
   });
 }
 
+// Load data from JSON files and combine lecturer info with room data
 export function setupBackButton() {
   const backButton = document.getElementById("backButton");
   if (!backButton) return;
@@ -44,6 +47,7 @@ export function setupBackButton() {
   backButton.textContent = "← Back to Home";
 }
 
+// Show the marker element at the correct position based on currentMarkerData and active map
 export function setupKeyboardToggle() {
   const input = document.getElementById("searchInput");
   const keyboard = document.getElementById("onscreenKeyboard");
@@ -66,7 +70,7 @@ export function setupKeyboardToggle() {
       input.focus();
     });
   }
-
+// Set up on-screen keyboard button bindings
   keyboard.querySelectorAll("[data-key]").forEach((button) => {
     bindPress(button, () => {
       let key = button.dataset.key;
@@ -98,6 +102,7 @@ export function setupKeyboardToggle() {
   });
 }
 
+// Add pressed state styles to interactive elements for better feedback on touch devices
 export function setupPressedState() {
   document.querySelectorAll("a.button, .tab, .small-btn, .search-button, .facility-card button").forEach((element) => {
     element.addEventListener("pointerdown", () => {
