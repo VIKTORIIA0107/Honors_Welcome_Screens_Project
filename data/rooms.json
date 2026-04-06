@@ -695,6 +695,14 @@
       "x": 505,
       "y": 628,
       "keywords": ["lift", "elevator"]
+    },
+    {
+      "name": "Kitchen",
+      "floor": "second",
+      "type": "facility",
+      "x": 172,
+      "y": 564,
+      "keywords": ["kitchen", "food", "cooking"]
     }
   ]
 }
