@@ -6,20 +6,19 @@
 
 html,
 body {
-  margin: 0;
-  padding: 0;
-  min-height: 100%;
-  touch-action: manipulation;
+  background: none;
+  position: relative;
 }
 
-/* Main body styling: font, text color, and background image */
-body {
-  font-family: 'Inter', sans-serif;
-  color: #1c3e9b;
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
   background-image: url('../assets/background.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+  z-index: -1;
 }
 
 /* Removes the cursor look after touch interaction is detected */
@@ -34,7 +33,7 @@ body.touch-active * {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 /* Shared header alignment for home and internal pages */
@@ -72,6 +71,7 @@ body.touch-active * {
   border-radius: 24px;
   padding: 30px;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.18);
+  overflow: hidden;
 }
 
 /* Smaller container used on the home page */
@@ -196,6 +196,7 @@ textarea {
 /* Width limit for the search page content */
 .search-container {
   max-width: 900px;
+  min-height: 760px;
 }
 
 /* Search input and button row */
@@ -245,11 +246,16 @@ textarea {
   display: flex;
   flex-direction: column;
   gap: 14px;
-}
-.onscreen-keyboard {
-  min-height: 340px;
+  margin-top: 20px;
+  scroll-behavior: smooth;
 }
 
+.results:empty::before {
+  content: "Start typing to search...";
+  display: block;
+  padding: 20px;
+  color: #888;
+}
 /* Shared card style for results, info sections, empty states, and facilities */
 .result-card,
 .info-card,
@@ -285,17 +291,7 @@ textarea {
   margin: 0;
   color: #4d5a6a;
 }
-.results {
-  max-height: 400px;   
-  overflow-y: auto;
-  margin-top: 20px;
-}
-.results:empty::before {
-  content: "Start typing to search...";
-  display: block;
-  padding: 20px;
-  color: #888;
-}
+
 /*ON-SCREEN KEYBOARD*/
 
 /* Main container for the onscreen keyboard */
@@ -402,7 +398,8 @@ textarea {
   justify-content: center;
   align-items: center;
   overflow: auto;
-  min-height: 420px;
+  min-height: 650px;
+  width: 100%;
   -webkit-overflow-scrolling: touch;
   touch-action: pan-x pan-y;
   user-select: none;
@@ -417,7 +414,7 @@ textarea {
   max-height: 78vh;
   border-radius: 18px;
   background: transparent;
-  padding: 8px;
+  padding: 0;
   pointer-events: auto;
   user-select: none;
   -webkit-user-select: none;
@@ -430,7 +427,6 @@ textarea {
 }
 
 /* Red marker used for selected rooms/facilities on the map */
-#marker,
 .marker {
   position: absolute;
   width: 12px;
@@ -444,7 +440,6 @@ textarea {
   pointer-events: none;
 }
 
-#marker::after,
 .marker::after {
   content: "";
   position: absolute;
@@ -473,6 +468,7 @@ textarea {
 /* Width setting for facilities page */
 .facilities-container {
   width: min(1100px, 94vw);
+  max-height: 700px;
 }
 
 /* Grid layout for facility cards */
@@ -902,6 +898,9 @@ textarea {
   .admin-actions button,
   .section-heading button {
     width: 100%;
+  }
+  .map-wrapper {
+    min-height: 420px;
   }
 }
 

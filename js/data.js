@@ -1,5 +1,4 @@
 export let roomsData = [];
-export let lecturersData = [];
 
 function normaliseText(value) {
   return String(value || "")
@@ -20,47 +19,31 @@ function normaliseText(value) {
 // Load data from JSON files
 export async function loadData() {
   try {
-    const [roomsResponse, lecturersResponse] = await Promise.all([
-      fetch("../data/rooms.json"),
-      fetch("../data/lecturers.json")
-    ]);
+    const roomsResponse = await fetch("../data/rooms.json");
 
-    if (!roomsResponse.ok || !lecturersResponse.ok) {
+    if (!roomsResponse.ok) {
       throw new Error("Could not load project data.");
     }
 
     const roomsJson = await roomsResponse.json();
-    const lecturersJson = await lecturersResponse.json();
-
     roomsData = Array.isArray(roomsJson.rooms) ? roomsJson.rooms : [];
-    lecturersData = Array.isArray(lecturersJson) ? lecturersJson : [];
 
-    attachLecturersToRooms();
+    attachRoomsData();
   } catch (error) {
     console.error("Failed to load data:", error);
     roomsData = [];
-    lecturersData = [];
   }
 }
 
-// Combine lecturer data with room data based on room codes and inline lecturer names
-function attachLecturersToRooms() {
+// Build lecturers array and searchable text from rooms.json only
+function attachRoomsData() {
   roomsData = roomsData.map((room) => {
-    const roomCode = String(room.room || "").trim();
-
-    const lecturerMatches = 
-    roomCode && room.type !== "facility"
-    ? lecturersData
-        .filter((lecturer) => String(lecturer.room || "").trim() === roomCode)
-        .map((lecturer) => lecturer.name)
-    : [];
-
     const inlineLecturers = String(room.lecturer || "")
-      .split(",")
+      .split(/[;,]/)
       .map((name) => name.trim())
       .filter(Boolean);
 
-    const lecturers = [...new Set([...lecturerMatches, ...inlineLecturers])];
+    const lecturers = [...new Set(inlineLecturers)];
 
     const searchText = [
       room.room,
