@@ -71,7 +71,7 @@ body.touch-active * {
   border-radius: 24px;
   padding: 30px;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.18);
-  overflow: hidden;
+  overflow: visible;
 }
 
 /* Smaller container used on the home page */
@@ -468,7 +468,13 @@ textarea {
 /* Width setting for facilities page */
 .facilities-container {
   width: min(1100px, 94vw);
-  max-height: 700px;
+  min-height: 700px;
+  padding-bottom: 40px;
+}
+
+.facilities-container .back-link {
+  display: block;
+  margin-top: 32px;
 }
 
 /* Grid layout for facility cards */
@@ -476,6 +482,7 @@ textarea {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 18px;
+  align-items: start;
 }
 
 /* Individual facility card layout */
