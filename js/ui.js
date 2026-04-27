@@ -18,9 +18,16 @@ export function escapeHtml(value) {
 export function bindPress(element, handler) {
   if (!element) return;
 
+  let handled = false;
+
   element.addEventListener("pointerdown", (event) => {
-    event.preventDefault();
+    handled = true;
     handler(event);
+  });
+  // Fallback for browsers where pointer doesn't work
+  element.addEventListener("click", (event) => {
+    if (!handled) handler(event);
+    handled = false;
   });
 }
 
