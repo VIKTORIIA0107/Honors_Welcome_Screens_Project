@@ -8,7 +8,7 @@
     "type": "entry", 
     "x": 124, 
     "y": 563, 
-    "keywords": ["enterence"] 
+    "keywords": ["enterance"] 
   },
   {
       "room": "G02",
@@ -18,7 +18,7 @@
       "type": "office",
       "x": 225,
       "y": 408,
-      "keywords": ["information", "enterence", "help"]
+      "keywords": ["information", "enterance", "help"]
     },
     {
       "room": "Lab0",

@@ -15,7 +15,7 @@ export function setupSearch() {
 
   if (!searchBtn || !searchInput) return;
 
-  let timeout;
+  let timeout; // For debouncing input
   let isShift = false;
 
   bindPress(searchBtn, performSearch);
@@ -26,7 +26,8 @@ export function setupSearch() {
       performSearch();
     }
   });
-
+  
+  // Show keyboard on interaction
   searchInput.addEventListener("pointerdown", () => {
     searchInput.focus();
     if (keyboard) keyboard.classList.remove("hidden");
@@ -35,7 +36,8 @@ export function setupSearch() {
   searchInput.addEventListener("focus", () => {
     if (keyboard) keyboard.classList.remove("hidden");
   });
-
+  
+  // Real-time search
   searchInput.addEventListener("input", () => {
     clearTimeout(timeout);
 
@@ -79,6 +81,7 @@ export function setupSearch() {
     });
   }
 }
+
 // Perform the search based on the input value and render results
 function performSearch() {
   const searchInput = document.getElementById("searchInput");
@@ -97,7 +100,8 @@ function performSearch() {
     clearSearchResults();
     return;
   }
-
+  
+  // Require minimum input length
   if (query.length < 2) {
     resultsContainer.innerHTML = `<div class="empty-state">Type at least 2 characters to search.</div>`;
     return;
@@ -111,7 +115,7 @@ function performSearch() {
   renderResults(matches, rawQuery);
 }
 
-// Load data from JSON files and combine lecturer info with room data
+// Reset search state 
 function clearSearchResults() {
   const resultsContainer = document.getElementById("results");
   const message = document.getElementById("searchMessage");
@@ -152,7 +156,8 @@ function renderResults(list, rawQuery) {
 
     const card = document.createElement("div");
     card.className = "result-card";
-
+    
+    // Safe rendering for preventing HTML injection
     card.innerHTML = `
       <div class="result-info">
         <h3>${escapeHtml(title)}</h3>

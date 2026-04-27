@@ -1,3 +1,4 @@
+// Capitalise first letter 
 export function capitalise(value) {
   if (!value) return "";
   return value.charAt(0).toUpperCase() + value.slice(1);
@@ -57,7 +58,8 @@ export function setupKeyboardToggle() {
   if (!input || !keyboard || !toggleBtn) return;
 
   let isShift = false;
-
+  
+  // Show or hide keyboard
   bindPress(toggleBtn, () => {
     keyboard.classList.toggle("hidden");
     input.focus();
@@ -89,7 +91,7 @@ export function setupKeyboardToggle() {
         key = isShift ? key.toUpperCase() : key.toLowerCase();
         input.value += key;
 
-        if (isShift) isShift = false; // auto turn off shift
+        if (isShift) isShift = false; // Auto turn off shift
       }
 
       input.dispatchEvent(new Event("input", { bubbles: true }));

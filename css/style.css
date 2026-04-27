@@ -8,6 +8,7 @@ html,
 body {
   background: none;
   position: relative;
+  font-family: 'Inter', Arial, sans-serif;
 }
 
 body::before {
@@ -731,7 +732,6 @@ textarea {
   transition: 0.2s ease;
 }
 
-/* Hover effect for secondary admin buttons */
 .admin-secondary-btn:hover {
   background: #dce5f6;
   transform: translateY(-1px);
@@ -911,7 +911,7 @@ textarea {
   }
 }
 
-/* Removes hover animation effects on touch-only devices */
+/* Removes animation effects on touch-only devices */
 @media (hover: none) {
   .button:hover,
   .search-button:hover,

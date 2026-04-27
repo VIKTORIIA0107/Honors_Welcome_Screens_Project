@@ -1,5 +1,8 @@
+// Array that will store all processed room data
 export let roomsData = [];
 
+// This function standardises text for search comparison
+// It removes punctuation, titles and ensures consistent formatting
 function normaliseText(value) {
   return String(value || "")
     .toLowerCase()
@@ -19,6 +22,7 @@ function normaliseText(value) {
 // Load data from JSON files
 export async function loadData() {
   try {
+    // Fetch room data from local JSON file
     const roomsResponse = await fetch("../data/rooms.json");
 
     if (!roomsResponse.ok) {
@@ -38,13 +42,16 @@ export async function loadData() {
 // Build lecturers array and searchable text from rooms.json only
 function attachRoomsData() {
   roomsData = roomsData.map((room) => {
+    // Split lecturer string into individual names
     const inlineLecturers = String(room.lecturer || "")
       .split(/[;,]/)
       .map((name) => name.trim())
       .filter(Boolean);
 
+    // Remove duplicate lecturer names
     const lecturers = [...new Set(inlineLecturers)];
-
+    
+    // Combine all search fields into one string
     const searchText = [
       room.room,
       room.name,
@@ -64,6 +71,7 @@ function attachRoomsData() {
   });
 }
 
+// Ensures user input is processed in the same way as stored data
 export function normaliseSearchQuery(value) {
   return normaliseText(value);
 }

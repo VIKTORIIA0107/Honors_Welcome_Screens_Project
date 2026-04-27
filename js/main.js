@@ -4,7 +4,7 @@ import { setupFloorTabs, initialiseMapPage } from "./map.js";
 import { setupFacilities } from "./facilities.js";
 import { setupBackButton, setupPressedState } from "./ui.js";
 
-// MAIN ENTRY POINT
+// Main entry point
 document.addEventListener("DOMContentLoaded", async () => {
   await loadData();
 

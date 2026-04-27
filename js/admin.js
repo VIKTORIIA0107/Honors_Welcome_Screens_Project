@@ -1,6 +1,4 @@
-// -----------------------------
-// ADMIN PAGE - ROOM COORDINATE PICKER
-// -----------------------------
+// ADMIN PAGE - ROOM COORDINATE
 
 // Stores rooms created during the current session
 const createdRooms = [];
@@ -37,7 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const roomCountBadge = document.getElementById("roomCountBadge");
 
 
-  // FLOOR CHANGE
+  // Floor change
   floorSelect.addEventListener("change", () => {
     adminMap.src = floorImages[floorSelect.value];
     adminMarker.style.display = "none";
@@ -46,7 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
 
-  // MAP CLICK 
+  // Map click 
   adminMap.addEventListener("click", (event) => {
     const rect = adminMap.getBoundingClientRect();
 
@@ -62,7 +60,7 @@ document.addEventListener("DOMContentLoaded", () => {
     placeMarkerFromRealCoordinates(x, y);
   });
 
-  // SAVE OR UPDATE ROOM
+  // Save or update room 
   saveRoomBtn.addEventListener("click", () => {
     const room = roomInput.value.trim();
     const name = nameInput.value.trim();
@@ -107,14 +105,14 @@ document.addEventListener("DOMContentLoaded", () => {
     clearForm();
   });
 
-  // CLEAR FORM
+  // Clear form 
   clearFormBtn.addEventListener("click", () => {
     clearForm();
     editingIndex = -1;
     saveRoomBtn.textContent = "Save Room";
   });
 
-  // COPY JSON OUTPUT
+  // Copy Json output 
   copyJsonBtn.addEventListener("click", async () => {
     const jsonText = JSON.stringify({ rooms: createdRooms }, null, 2);
 
@@ -130,7 +128,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // UPDATE OUTPUT AREAS
+  // Update output areas 
   function updateOutput() {
     jsonOutput.textContent = JSON.stringify({ rooms: createdRooms }, null, 2);
 
@@ -194,7 +192,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // LOAD ROOM INTO FORM
+  // Load room into form
   function loadRoomIntoForm(roomItem, index) {
     editingIndex = index;
 
@@ -217,7 +215,7 @@ document.addEventListener("DOMContentLoaded", () => {
     };
   }
 
-  // DISPLAY MARKER FROM SAVED COORDINATES
+  // Display marker from saved coordinates
   function placeMarkerFromRealCoordinates(realX, realY) {
     const rect = adminMap.getBoundingClientRect();
 
@@ -232,7 +230,7 @@ document.addEventListener("DOMContentLoaded", () => {
     adminMarker.style.display = "block";
   }
 
-  // CLEAR FORM
+  // Clear form
   function clearForm() {
     roomInput.value = "";
     nameInput.value = "";
@@ -244,7 +242,7 @@ document.addEventListener("DOMContentLoaded", () => {
     adminMarker.style.display = "none";
   }
 
-  // HELPERS
+  // Helpers
   function capitalise(value) {
     if (!value) return "";
     return value.charAt(0).toUpperCase() + value.slice(1);
